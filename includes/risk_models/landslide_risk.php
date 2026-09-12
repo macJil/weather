@@ -113,11 +113,12 @@ function analyze_rain_rate(float $rain_rate): int {
 
 /**
  * Returns daily rain risk (0 to 3).
+ * Uses millimeter values for daily precipitation.
  */
 function analyze_daily_rain(float $daily_rain): int {
-    if ($daily_rain <= 0.15) return 0;
-    if ($daily_rain <= 0.30) return 1;
-    if ($daily_rain <= 0.40) return 2;
+    if ($daily_rain <= 5.0) return 0;
+    if ($daily_rain <= 15.0) return 1;
+    if ($daily_rain <= 30.0) return 2;
     return 3;
 }
 

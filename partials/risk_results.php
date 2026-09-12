@@ -29,8 +29,7 @@ if (!isset($row) || !isset($score) || !isset($category)) {
             <div class="col-6">
                 <strong>Hydrology:</strong><br>
                 Saturation: <?php echo round((float)$row['soil_saturation_index'] * 100); ?>%<br>
-                Slope: <?php echo $row['slope_angle']; ?>°<br>
-                Soil: <?php echo ucfirst($row['soil_type']); ?>
+                Slope: <?php echo $row['slope_angle']; ?>°
             </div>
         </div>
     </div>

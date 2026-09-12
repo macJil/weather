@@ -9,13 +9,14 @@
 <body>
 <?php include("partials/header.html")?>  
     <div class="container-fluid">
-        <h1 style="text-align: center; ">Full Log Details</h1>
+        
 
         <div class="table-responsive">
             <table class="table table-striped table-hover table-sm">
                 <?php if(mysqli_num_rows($result) < 1):?>
                     <h3 style="text-align: center;">No Data Found...</h3>
                 <?php else: ?>
+                    <h1 style="text-align: center; ">Full Log Details</h1>
                     <thead>
                         <tr>
                             <th>Time</th>
@@ -35,7 +36,6 @@
                             <th>ET0 (mm)</th>
                             <th>Soil Moist</th>
                             <th>Slope (°)</th>
-                            <th>Soil Type</th>
                             <th>Runoff Coeff</th>
                             <th>Infil Rate</th>
                             <th>Sat Index</th>
@@ -62,7 +62,6 @@
                             <td><?= htmlspecialchars($row['et0_evapotranspiration'] ?? '') ?></td>
                             <td><?= htmlspecialchars($row['soil_moisture'] ?? '') ?></td>
                             <td><?= htmlspecialchars($row['slope_angle'] ?? '') ?></td>
-                            <td><?= htmlspecialchars($row['soil_type'] ?? '') ?></td>
                             <td><?= htmlspecialchars($row['runoff_coefficient'] ?? '') ?></td>
                             <td><?= htmlspecialchars($row['infiltration_rate'] ?? '') ?></td>
                             <td><?= htmlspecialchars($row['soil_saturation_index'] ?? '') ?></td>

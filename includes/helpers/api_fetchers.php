@@ -4,70 +4,11 @@
  * HELPER FUNCTIONS: api_helpers.php
  * 
  * This file contains reusable functions to:
- * 1. Fetch data from external REST APIs (Weather, Soil, Topography).
+ * 1. Fetch data from external REST APIs (Weather, Topography).
  * 2. Calculate landslide risk metrics (Runoff, Infiltration, Saturation).
- * 3. Handle parallel API requests and caching.
  */
 
-// --- 1. PARALLEL API FETCHING ---
-
-/**
- * Fetches data from multiple URLs simultaneously using cURL multi-handle.
- */
-function fetchParallelData(array $urls) {
-    $mh = curl_multi_init();
-    $handles = [];
-    $results = [];
-
-    foreach ($urls as $key => $url) {
-        $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_USERAGENT, "BaguioWeatherMonitor/1.0");
-        curl_setopt($ch, CURLOPT_TIMEOUT, 30);
-        curl_multi_add_handle($mh, $ch);
-        $handles[$key] = $ch;
-    }
-
-    $active = null;
-    do {
-        $status = curl_multi_exec($mh, $active);
-    } while ($active || $status == CURLM_CALL_MULTI_PERFORM);
-
-    foreach ($handles as $key => $ch) {
-        $results[$key] = json_decode(curl_multi_getcontent($ch), true);
-        curl_multi_remove_handle($mh, $ch);
-        curl_close($ch);
-    }
-    curl_multi_close($mh);
-    return $results;
-}
-
-// --- 2. CACHING HELPERS ---
-
-/**
- * Retrieves terrain/soil data from the local cache if it exists.
- */
-function getCachedLocationData($conn, $lat, $lng) {
-    $lat = round($lat, 3);
-    $lng = round($lng, 3);
-    $stmt = mysqli_prepare($conn, "SELECT slope, soil_type FROM location_cache WHERE lat = ? AND lng = ?");
-    mysqli_stmt_bind_param($stmt, "dd", $lat, $lng);
-    mysqli_stmt_execute($stmt);
-    return mysqli_fetch_assoc(mysqli_stmt_get_result($stmt));
-}
-
-/**
- * Stores terrain/soil data into the local cache.
- */
-function storeCacheData($conn, $lat, $lng, $slope, $soilType) {
-    $lat = round($lat, 3);
-    $lng = round($lng, 3);
-    $stmt = mysqli_prepare($conn, "INSERT IGNORE INTO location_cache (lat, lng, slope, soil_type) VALUES (?, ?, ?, ?)");
-    mysqli_stmt_bind_param($stmt, "ddds", $lat, $lng, $slope, $soilType);
-    mysqli_stmt_execute($stmt);
-}
-
-// --- 3. EXISTING API HELPERS ---
+// --- API HELPERS ---
 
 function fetchJson($url, $postData = null) {
     $options = [
@@ -151,8 +92,9 @@ function getSlopeAngle($latitude, $longitude) {
 function getWeatherData($lat, $lng) {
     $url = "https://api.open-meteo.com/v1/forecast?latitude=$lat&longitude=$lng" .
            "&current=temperature_2m,relative_humidity_2m,surface_pressure,wind_speed_10m,wind_gusts_10m,precipitation,precipitation_probability,rain,showers,soil_moisture_0_to_1cm" .
+           "&hourly=precipitation,rain,showers" .
            "&daily=et0_fao_evapotranspiration,precipitation_sum" .
-           "&timezone=auto";
+           "&timezone=Asia/Manila&forecast_days=1&forecast_hours=24";
     return fetchJson($url);
 }
 
@@ -165,7 +107,7 @@ function getLocationName($lat, $lng) {
     return implode(", ", array_filter($parts)) ?: "Unknown Location";
 }
 
-// --- 4. RISK CALCULATION MODELS ---
+// --- RISK CALCULATION MODELS ---
 
 function calculateRunoffCoefficient(string $soilType, float $slope): float {
     // Exact mapping of WRB soil classes to runoff coefficients (aligned with risk_models.php)
@@ -231,3 +173,5 @@ function calculateSoilSaturation(float $soilMoisture, float $rainRate, float $et
     $net = $rainRate - $et0;
     return ($net > 0) ? min(1.0, $soilMoisture + (max(0, $net - $infiltrationRate) / 100.0)) : max(0.0, $soilMoisture + ($net / 50.0));
 }
+
+?>
