@@ -1,0 +1,19 @@
+#map { 
+    height: 300px; width: 100%; 
+}
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.carousel-caption {
+    top: 20px;
+    bottom: auto;
+    color: black;
+    text-shadow: 0 1px 3px white;
+   
+}
+
+
+
+

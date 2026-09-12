@@ -1,0 +1,145 @@
+For your weather monitor, I recommend building features in this order:
+
+**1. CRUD weather logs**
+
+Create separate PHP actions or endpoints:
+
+- `create_log.php` or `api/logs/create.php`
+- `read_logs.php`
+- `update_log.php`
+- `delete_log.php`
+
+The interface could provide:
+
+- View all saved logs
+- Search by location or date
+- Edit incorrect soil, slope, or vegetation values
+- Delete unwanted records
+- View one record’s full details
+
+Use prepared statements for every database query. The current `index.php` inserts raw POST values directly into SQL, which is vulnerable to SQL injection.
+
+**2. Add filtering and pagination**
+
+Useful and easy filters:
+
+- Date range
+- Location
+- Rain rate
+- Soil type
+- Vegetation
+- Slope range
+
+Use pagination instead of always loading only the newest 20 records.
+
+**3. Add a weather dashboard**
+
+Show:
+
+- Current rain rate
+- Daily rainfall
+- Soil moisture
+- Number of monitored locations
+- Latest update time
+- Highest rainfall location
+- Average soil moisture
+
+Simple charts using locally downloaded Chart.js would work well.
+
+**4. Save monitored locations**
+
+Create a `locations` table:
+
+```text
+id
+name
+latitude
+longitude
+slope_angle
+soil_type
+vegetation
+created_at
+updated_at
+```
+
+Then users can:
+
+- Add a monitoring location
+- Edit its environmental information
+- Delete it
+- Click a saved location to load its weather
+
+This is better than hardcoding:
+
+```js
+slope=28
+soilType=Clay Loam
+vegetation=Pine Forest
+```
+
+**5. Add automatic monitoring controls**
+
+Add:
+
+- Start monitoring button
+- Stop monitoring button
+- Refresh interval selector
+- Last successful update
+- API error message
+- Loading indicator
+
+Currently, each map click starts a timer, but a failed request is not clearly shown to the user.
+
+**6. Export and backup**
+
+Easy, useful additions:
+
+- Export logs as CSV
+- Export filtered results
+- Print report
+- Download JSON backup
+- Import JSON backup
+
+**7. Add authentication if multiple people will use it**
+
+At minimum:
+
+- Login/logout
+- Password hashing with `password_hash()`
+- Session-based access control
+- Admin-only delete functionality
+
+**Recommended database structure**
+
+Use three tables:
+
+```text
+users
+locations
+weather_logs
+```
+
+`weather_logs` should reference `locations` using `location_id` instead of repeating location name, soil type, and vegetation on every row.
+
+**Important security improvements**
+
+Before adding many features, implement:
+
+- Prepared MySQL statements
+- Server-side validation
+- HTML escaping using `htmlspecialchars()`
+- CSRF protection for POST, update, and delete actions
+- Restricted database credentials
+- Clear error handling instead of exposing database errors
+
+A practical first version would be:
+
+1. Refactor database access into `config.php`
+2. Create a `locations` table
+3. Add location CRUD
+4. Add weather-log search and pagination
+5. Add CSV export
+6. Add dashboard charts
+7. Add login only if authentication is needed
+
+This keeps the project simple while giving it a solid path toward a complete monitoring system.

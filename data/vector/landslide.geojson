@@ -1,0 +1,2725 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "stac_version": "1.1.0",
+      "stac_extensions": [
+        "https://stac-extensions.github.io/processing/v1.2.0/schema.json",
+        "https://stac-extensions.github.io/product/v0.1.0/schema.json",
+        "https://stac-extensions.github.io/grid/v1.1.0/schema.json",
+        "https://stac-extensions.github.io/classification/v2.0.0/schema.json",
+        "https://stac-extensions.github.io/file/v2.1.0/schema.json",
+        "https://stac-extensions.github.io/raster/v2.0.0/schema.json",
+        "https://stac-extensions.github.io/projection/v2.0.0/schema.json",
+        "https://stac-extensions.github.io/alternate-assets/v1.2.0/schema.json",
+        "https://stac-extensions.github.io/authentication/v1.1.0/schema.json",
+        "https://stac-extensions.github.io/web-map-links/v1.3.0/schema.json"
+      ],
+      "id": "ESA_WorldCover_10m_2021_v200_N00E006_Map",
+      "collection": "esa-worldcover-map-10m-2021-v2",
+      "geometry": {
+        "coordinates": [
+          [
+            [6, 0],
+            [9, 0],
+            [9, 3],
+            [6, 3],
+            [6, 0]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "bbox": [6, 0, 9, 3],
+      "properties": {
+        "grid:code": "WORLDCOVER-N00E006",
+        "proj:code": "EPSG:4326",
+        "start_datetime": "2021-01-01T00:00:00Z",
+        "end_datetime": "2021-12-31T23:59:59Z",
+        "proj:geometry": {
+          "coordinates": [
+            [
+              [6, 0],
+              [9, 0],
+              [9, 3],
+              [6, 3],
+              [6, 0]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "created": "2025-07-02T15:37:51.639761Z",
+        "processing:facility": "VITO",
+        "processing:version": "200",
+        "product:type": "Map",
+        "title": "ESA_WorldCover_10m_2021_v200_N00E006_Map",
+        "proj:bbox": [6, 0, 9, 3],
+        "auth:schemes": {
+          "oidc": {
+            "openIdConnectUrl": "https://sso.terrascope.be/auth/realms/terrascope/.well-known/openid-configuration",
+            "description": "Authenticate with Terrascope OpenID Connect",
+            "type": "openIdConnect"
+          }
+        },
+        "datetime": "2021-01-01T00:00:00Z",
+        "instruments": [
+          "sar",
+          "msi"
+        ],
+        "constellation": "sentinel-1, sentinel-2",
+        "gsd": 10,
+        "processing:datetime": "2022-10-21T05:40:33Z",
+        "updated": "2025-07-02T15:39:06.432186Z",
+        "providers": [
+          {
+            "roles": [
+              "producer"
+            ],
+            "name": "ESA",
+            "url": "https://earth.esa.int/"
+          },
+          {
+            "roles": [
+              "processor",
+              "host"
+            ],
+            "name": "VITO",
+            "url": "https://terrascope.be/"
+          }
+        ]
+      },
+      "links": [
+        {
+          "rel": "self",
+          "type": "application/geo+json",
+          "href": "https://stac.terrascope.be/collections/esa-worldcover-map-10m-2021-v2/items/ESA_WorldCover_10m_2021_v200_N00E006_Map"
+        },
+        {
+          "rel": "parent",
+          "type": "application/json",
+          "href": "https://stac.terrascope.be/collections/esa-worldcover-map-10m-2021-v2"
+        },
+        {
+          "rel": "collection",
+          "type": "application/json",
+          "href": "https://stac.terrascope.be/collections/esa-worldcover-map-10m-2021-v2"
+        },
+        {
+          "rel": "root",
+          "type": "application/json",
+          "href": "https://stac.terrascope.be/"
+        },
+        {
+          "rel": "tilejson",
+          "href": "https://titiler.terrascope.be/collections/esa-worldcover-map-10m-2021-v2/items/ESA_WorldCover_10m_2021_v200_N00E006_Map/WebMercatorQuad/tilejson.json?assets=Map&colormap_name=worldcover",
+          "type": "application/json",
+          "title": "TileJSON"
+        }
+      ],
+      "assets": {
+        "preview": {
+          "proj:code": null,
+          "proj:shape": [256, 256],
+          "roles": [
+            "thumbnail",
+            "overview"
+          ],
+          "description": "Preview image",
+          "href": "https://titiler.terrascope.be/collections/esa-worldcover-map-10m-2021-v2/items/ESA_WorldCover_10m_2021_v200_N00E006_Map/preview?assets=Map&format=png&max_size=256&colormap_name=worldcover",
+          "type": "image/png",
+          "title": "Preview"
+        },
+        "InputQuality": {
+          "raster:offset": 0,
+          "roles": [
+            "data"
+          ],
+          "description": "Per pixel quality indicator showing the quality of the input data.",
+          "alternate": {
+            "local": {
+              "href": "file:///data/MTDA/WORLDCOVER/ESA_WORLDCOVER_10M_2021_V200/MAP/ESA_WorldCover_10m_2021_v200_N00E006_Map/ESA_WorldCover_10m_2021_v200_N00E006_InputQuality.tif"
+            }
+          },
+          "nodata": -1,
+          "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+          "title": "InputQuality",
+          "bands": [
+            {
+              "name": "NOBS_S1_GAMMA0",
+              "description": "Number of Sentinel-1 GAMMA0 observations used in the classification workflow"
+            },
+            {
+              "name": "NOBS_S2_L2A",
+              "description": "Number of Sentinel-2 L2A observations used in the classification workflow"
+            },
+            {
+              "name": "INVALID_S2",
+              "description": "Percentage (0-100) of invalid S2 observations discarded in the classification workflow (after cloud and cloud shadow filtering)"
+            }
+          ],
+          "raster:sampling": "area",
+          "raster:scale": 1,
+          "proj:shape": [6000, 6000],
+          "proj:transform": [0.0005, 0, 6, 0, -0.0005, 3, 0, 0, 1],
+          "data_type": "int16",
+          "gsd": 60,
+          "href": "https://services.terrascope.be/download/WORLDCOVER/ESA_WORLDCOVER_10M_2021_V200/MAP/ESA_WorldCover_10m_2021_v200_N00E006_Map/ESA_WorldCover_10m_2021_v200_N00E006_InputQuality.tif",
+          "auth:refs": [
+            "oidc"
+          ],
+          "updated": "2022-08-03T14:46:26.244794Z",
+          "file:size": 1005434
+        },
+        "Map": {
+          "raster:offset": 0,
+          "roles": [
+            "data"
+          ],
+          "alternate": {
+            "local": {
+              "href": "file:///data/MTDA/WORLDCOVER/ESA_WORLDCOVER_10M_2021_V200/MAP/ESA_WorldCover_10m_2021_v200_N00E006_Map/ESA_WorldCover_10m_2021_v200_N00E006_Map.tif"
+            }
+          },
+          "nodata": 0,
+          "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+          "title": "Map",
+          "bands": [
+            {
+              "name": "Map",
+              "classification:classes": [
+                {
+                  "name": "tree_cover",
+                  "color_hint": "006400",
+                  "title": "Tree cover",
+                  "value": 10
+                },
+                {
+                  "name": "shrubland",
+                  "color_hint": "FFBB22",
+                  "title": "Shrubland",
+                  "value": 20
+                },
+                {
+                  "name": "grassland",
+                  "color_hint": "FFFF4C",
+                  "title": "Grassland",
+                  "value": 30
+                },
+                {
+                  "name": "cropland",
+                  "color_hint": "F096FF",
+                  "title": "Cropland",
+                  "value": 40
+                },
+                {
+                  "name": "built-up",
+                  "color_hint": "FA0000",
+                  "title": "Built-up",
+                  "value": 50
+                },
+                {
+                  "name": "bare-sparse-vegetation",
+                  "color_hint": "B4B4B4",
+                  "title": "Bare/sparse vegetation",
+                  "value": 60
+                },
+                {
+                  "name": "snow-and-ice",
+                  "color_hint": "F0F0F0",
+                  "title": "Snow and ice",
+                  "value": 70
+                },
+                {
+                  "name": "permanent-water-bodies",
+                  "color_hint": "0064C8",
+                  "title": "Permanent water bodies",
+                  "value": 80
+                },
+                {
+                  "name": "herbaceous-wetlands",
+                  "color_hint": "0096A0",
+                  "title": "Herbaceous wetlands",
+                  "value": 90
+                },
+                {
+                  "name": "mangroves",
+                  "color_hint": "00CF75",
+                  "title": "Mangroves",
+                  "value": 95
+                },
+                {
+                  "name": "moss-and-lichen",
+                  "color_hint": "FAE6A0",
+                  "title": "Moss and lichen",
+                  "value": 100
+                }
+              ]
+            }
+          ],
+          "raster:sampling": "area",
+          "raster:scale": 1,
+          "proj:shape": [36000, 36000],
+          "proj:transform": [0.000083333333333333, 0, 6, 0, -0.000083333333333333, 3, 0, 0, 1],
+          "data_type": "uint8",
+          "href": "https://services.terrascope.be/download/WORLDCOVER/ESA_WORLDCOVER_10M_2021_V200/MAP/ESA_WorldCover_10m_2021_v200_N00E006_Map/ESA_WorldCover_10m_2021_v200_N00E006_Map.tif",
+          "auth:refs": [
+            "oidc"
+          ],
+          "updated": "2022-10-21T05:40:33.439960Z",
+          "file:size": 2552807
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "stac_version": "1.1.0",
+      "stac_extensions": [
+        "https://stac-extensions.github.io/processing/v1.2.0/schema.json",
+        "https://stac-extensions.github.io/product/v0.1.0/schema.json",
+        "https://stac-extensions.github.io/grid/v1.1.0/schema.json",
+        "https://stac-extensions.github.io/classification/v2.0.0/schema.json",
+        "https://stac-extensions.github.io/file/v2.1.0/schema.json",
+        "https://stac-extensions.github.io/raster/v2.0.0/schema.json",
+        "https://stac-extensions.github.io/projection/v2.0.0/schema.json",
+        "https://stac-extensions.github.io/alternate-assets/v1.2.0/schema.json",
+        "https://stac-extensions.github.io/authentication/v1.1.0/schema.json",
+        "https://stac-extensions.github.io/web-map-links/v1.3.0/schema.json"
+      ],
+      "id": "ESA_WorldCover_10m_2021_v200_N00E009_Map",
+      "collection": "esa-worldcover-map-10m-2021-v2",
+      "geometry": {
+        "coordinates": [
+          [
+            [9, 0],
+            [12, 0],
+            [12, 3],
+            [9, 3],
+            [9, 0]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "bbox": [9, 0, 12, 3],
+      "properties": {
+        "grid:code": "WORLDCOVER-N00E009",
+        "proj:code": "EPSG:4326",
+        "start_datetime": "2021-01-01T00:00:00Z",
+        "end_datetime": "2021-12-31T23:59:59Z",
+        "proj:geometry": {
+          "coordinates": [
+            [
+              [9, 0],
+              [12, 0],
+              [12, 3],
+              [9, 3],
+              [9, 0]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "created": "2025-07-02T15:41:15.190145Z",
+        "processing:facility": "VITO",
+        "processing:version": "200",
+        "product:type": "Map",
+        "title": "ESA_WorldCover_10m_2021_v200_N00E009_Map",
+        "proj:bbox": [9, 0, 12, 3],
+        "auth:schemes": {
+          "oidc": {
+            "openIdConnectUrl": "https://sso.terrascope.be/auth/realms/terrascope/.well-known/openid-configuration",
+            "description": "Authenticate with Terrascope OpenID Connect",
+            "type": "openIdConnect"
+          }
+        },
+        "datetime": "2021-01-01T00:00:00Z",
+        "instruments": [
+          "sar",
+          "msi"
+        ],
+        "constellation": "sentinel-1, sentinel-2",
+        "gsd": 10,
+        "processing:datetime": "2022-10-21T05:43:26Z",
+        "updated": "2025-07-02T15:42:17.171038Z",
+        "providers": [
+          {
+            "roles": [
+              "producer"
+            ],
+            "name": "ESA",
+            "url": "https://earth.esa.int/"
+          },
+          {
+            "roles": [
+              "processor",
+              "host"
+            ],
+            "name": "VITO",
+            "url": "https://terrascope.be/"
+          }
+        ]
+      },
+      "links": [
+        {
+          "rel": "self",
+          "type": "application/geo+json",
+          "href": "https://stac.terrascope.be/collections/esa-worldcover-map-10m-2021-v2/items/ESA_WorldCover_10m_2021_v200_N00E009_Map"
+        },
+        {
+          "rel": "parent",
+          "type": "application/json",
+          "href": "https://stac.terrascope.be/collections/esa-worldcover-map-10m-2021-v2"
+        },
+        {
+          "rel": "collection",
+          "type": "application/json",
+          "href": "https://stac.terrascope.be/collections/esa-worldcover-map-10m-2021-v2"
+        },
+        {
+          "rel": "root",
+          "type": "application/json",
+          "href": "https://stac.terrascope.be/"
+        },
+        {
+          "rel": "tilejson",
+          "href": "https://titiler.terrascope.be/collections/esa-worldcover-map-10m-2021-v2/items/ESA_WorldCover_10m_2021_v200_N00E009_Map/WebMercatorQuad/tilejson.json?assets=Map&colormap_name=worldcover",
+          "type": "application/json",
+          "title": "TileJSON"
+        }
+      ],
+      "assets": {
+        "preview": {
+          "proj:code": null,
+          "proj:shape": [256, 256],
+          "roles": [
+            "thumbnail",
+            "overview"
+          ],
+          "description": "Preview image",
+          "href": "https://titiler.terrascope.be/collections/esa-worldcover-map-10m-2021-v2/items/ESA_WorldCover_10m_2021_v200_N00E009_Map/preview?assets=Map&format=png&max_size=256&colormap_name=worldcover",
+          "type": "image/png",
+          "title": "Preview"
+        },
+        "InputQuality": {
+          "raster:offset": 0,
+          "roles": [
+            "data"
+          ],
+          "description": "Per pixel quality indicator showing the quality of the input data.",
+          "alternate": {
+            "local": {
+              "href": "file:///data/MTDA/WORLDCOVER/ESA_WORLDCOVER_10M_2021_V200/MAP/ESA_WorldCover_10m_2021_v200_N00E009_Map/ESA_WorldCover_10m_2021_v200_N00E009_InputQuality.tif"
+            }
+          },
+          "nodata": -1,
+          "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+          "title": "InputQuality",
+          "bands": [
+            {
+              "name": "NOBS_S1_GAMMA0",
+              "description": "Number of Sentinel-1 GAMMA0 observations used in the classification workflow"
+            },
+            {
+              "name": "NOBS_S2_L2A",
+              "description": "Number of Sentinel-2 L2A observations used in the classification workflow"
+            },
+            {
+              "name": "INVALID_S2",
+              "description": "Percentage (0-100) of invalid S2 observations discarded in the classification workflow (after cloud and cloud shadow filtering)"
+            }
+          ],
+          "raster:sampling": "area",
+          "raster:scale": 1,
+          "proj:shape": [6000, 6000],
+          "proj:transform": [0.0005, 0, 9, 0, -0.0005, 3, 0, 0, 1],
+          "data_type": "int16",
+          "gsd": 60,
+          "href": "https://services.terrascope.be/download/WORLDCOVER/ESA_WORLDCOVER_10M_2021_V200/MAP/ESA_WorldCover_10m_2021_v200_N00E009_Map/ESA_WorldCover_10m_2021_v200_N00E009_InputQuality.tif",
+          "auth:refs": [
+            "oidc"
+          ],
+          "updated": "2022-08-03T14:46:46.027255Z",
+          "file:size": 20832570
+        },
+        "Map": {
+          "raster:offset": 0,
+          "roles": [
+            "data"
+          ],
+          "alternate": {
+            "local": {
+              "href": "file:///data/MTDA/WORLDCOVER/ESA_WORLDCOVER_10M_2021_V200/MAP/ESA_WorldCover_10m_2021_v200_N00E009_Map/ESA_WorldCover_10m_2021_v200_N00E009_Map.tif"
+            }
+          },
+          "nodata": 0,
+          "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+          "title": "Map",
+          "bands": [
+            {
+              "name": "Map",
+              "classification:classes": [
+                {
+                  "name": "tree_cover",
+                  "color_hint": "006400",
+                  "title": "Tree cover",
+                  "value": 10
+                },
+                {
+                  "name": "shrubland",
+                  "color_hint": "FFBB22",
+                  "title": "Shrubland",
+                  "value": 20
+                },
+                {
+                  "name": "grassland",
+                  "color_hint": "FFFF4C",
+                  "title": "Grassland",
+                  "value": 30
+                },
+                {
+                  "name": "cropland",
+                  "color_hint": "F096FF",
+                  "title": "Cropland",
+                  "value": 40
+                },
+                {
+                  "name": "built-up",
+                  "color_hint": "FA0000",
+                  "title": "Built-up",
+                  "value": 50
+                },
+                {
+                  "name": "bare-sparse-vegetation",
+                  "color_hint": "B4B4B4",
+                  "title": "Bare/sparse vegetation",
+                  "value": 60
+                },
+                {
+                  "name": "snow-and-ice",
+                  "color_hint": "F0F0F0",
+                  "title": "Snow and ice",
+                  "value": 70
+                },
+                {
+                  "name": "permanent-water-bodies",
+                  "color_hint": "0064C8",
+                  "title": "Permanent water bodies",
+                  "value": 80
+                },
+                {
+                  "name": "herbaceous-wetlands",
+                  "color_hint": "0096A0",
+                  "title": "Herbaceous wetlands",
+                  "value": 90
+                },
+                {
+                  "name": "mangroves",
+                  "color_hint": "00CF75",
+                  "title": "Mangroves",
+                  "value": 95
+                },
+                {
+                  "name": "moss-and-lichen",
+                  "color_hint": "FAE6A0",
+                  "title": "Moss and lichen",
+                  "value": 100
+                }
+              ]
+            }
+          ],
+          "raster:sampling": "area",
+          "raster:scale": 1,
+          "proj:shape": [36000, 36000],
+          "proj:transform": [0.000083333333333333, 0, 9, 0, -0.000083333333333333, 3, 0, 0, 1],
+          "data_type": "uint8",
+          "href": "https://services.terrascope.be/download/WORLDCOVER/ESA_WORLDCOVER_10M_2021_V200/MAP/ESA_WorldCover_10m_2021_v200_N00E009_Map/ESA_WorldCover_10m_2021_v200_N00E009_Map.tif",
+          "auth:refs": [
+            "oidc"
+          ],
+          "updated": "2022-10-21T05:43:26.146386Z",
+          "file:size": 10132372
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "stac_version": "1.1.0",
+      "stac_extensions": [
+        "https://stac-extensions.github.io/processing/v1.2.0/schema.json",
+        "https://stac-extensions.github.io/product/v0.1.0/schema.json",
+        "https://stac-extensions.github.io/grid/v1.1.0/schema.json",
+        "https://stac-extensions.github.io/classification/v2.0.0/schema.json",
+        "https://stac-extensions.github.io/file/v2.1.0/schema.json",
+        "https://stac-extensions.github.io/raster/v2.0.0/schema.json",
+        "https://stac-extensions.github.io/projection/v2.0.0/schema.json",
+        "https://stac-extensions.github.io/alternate-assets/v1.2.0/schema.json",
+        "https://stac-extensions.github.io/authentication/v1.1.0/schema.json",
+        "https://stac-extensions.github.io/web-map-links/v1.3.0/schema.json"
+      ],
+      "id": "ESA_WorldCover_10m_2021_v200_N00E012_Map",
+      "collection": "esa-worldcover-map-10m-2021-v2",
+      "geometry": {
+        "coordinates": [
+          [
+            [12, 0],
+            [15, 0],
+            [15, 3],
+            [12, 3],
+            [12, 0]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "bbox": [12, 0, 15, 3],
+      "properties": {
+        "grid:code": "WORLDCOVER-N00E012",
+        "proj:code": "EPSG:4326",
+        "start_datetime": "2021-01-01T00:00:00Z",
+        "end_datetime": "2021-12-31T23:59:59Z",
+        "proj:geometry": {
+          "coordinates": [
+            [
+              [12, 0],
+              [15, 0],
+              [15, 3],
+              [12, 3],
+              [12, 0]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "created": "2025-07-02T15:41:32.145786Z",
+        "processing:facility": "VITO",
+        "processing:version": "200",
+        "product:type": "Map",
+        "title": "ESA_WorldCover_10m_2021_v200_N00E012_Map",
+        "proj:bbox": [12, 0, 15, 3],
+        "auth:schemes": {
+          "oidc": {
+            "openIdConnectUrl": "https://sso.terrascope.be/auth/realms/terrascope/.well-known/openid-configuration",
+            "description": "Authenticate with Terrascope OpenID Connect",
+            "type": "openIdConnect"
+          }
+        },
+        "datetime": "2021-01-01T00:00:00Z",
+        "instruments": [
+          "sar",
+          "msi"
+        ],
+        "constellation": "sentinel-1, sentinel-2",
+        "gsd": 10,
+        "processing:datetime": "2022-10-21T05:47:37Z",
+        "updated": "2025-07-02T15:42:17.225002Z",
+        "providers": [
+          {
+            "roles": [
+              "producer"
+            ],
+            "name": "ESA",
+            "url": "https://earth.esa.int/"
+          },
+          {
+            "roles": [
+              "processor",
+              "host"
+            ],
+            "name": "VITO",
+            "url": "https://terrascope.be/"
+          }
+        ]
+      },
+      "links": [
+        {
+          "rel": "self",
+          "type": "application/geo+json",
+          "href": "https://stac.terrascope.be/collections/esa-worldcover-map-10m-2021-v2/items/ESA_WorldCover_10m_2021_v200_N00E012_Map"
+        },
+        {
+          "rel": "parent",
+          "type": "application/json",
+          "href": "https://stac.terrascope.be/collections/esa-worldcover-map-10m-2021-v2"
+        },
+        {
+          "rel": "collection",
+          "type": "application/json",
+          "href": "https://stac.terrascope.be/collections/esa-worldcover-map-10m-2021-v2"
+        },
+        {
+          "rel": "root",
+          "type": "application/json",
+          "href": "https://stac.terrascope.be/"
+        },
+        {
+          "rel": "tilejson",
+          "href": "https://titiler.terrascope.be/collections/esa-worldcover-map-10m-2021-v2/items/ESA_WorldCover_10m_2021_v200_N00E012_Map/WebMercatorQuad/tilejson.json?assets=Map&colormap_name=worldcover",
+          "type": "application/json",
+          "title": "TileJSON"
+        }
+      ],
+      "assets": {
+        "preview": {
+          "proj:code": null,
+          "proj:shape": [256, 256],
+          "roles": [
+            "thumbnail",
+            "overview"
+          ],
+          "description": "Preview image",
+          "href": "https://titiler.terrascope.be/collections/esa-worldcover-map-10m-2021-v2/items/ESA_WorldCover_10m_2021_v200_N00E012_Map/preview?assets=Map&format=png&max_size=256&colormap_name=worldcover",
+          "type": "image/png",
+          "title": "Preview"
+        },
+        "InputQuality": {
+          "raster:offset": 0,
+          "roles": [
+            "data"
+          ],
+          "description": "Per pixel quality indicator showing the quality of the input data.",
+          "alternate": {
+            "local": {
+              "href": "file:///data/MTDA/WORLDCOVER/ESA_WORLDCOVER_10M_2021_V200/MAP/ESA_WorldCover_10m_2021_v200_N00E012_Map/ESA_WorldCover_10m_2021_v200_N00E012_InputQuality.tif"
+            }
+          },
+          "nodata": -1,
+          "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+          "title": "InputQuality",
+          "bands": [
+            {
+              "name": "NOBS_S1_GAMMA0",
+              "description": "Number of Sentinel-1 GAMMA0 observations used in the classification workflow"
+            },
+            {
+              "name": "NOBS_S2_L2A",
+              "description": "Number of Sentinel-2 L2A observations used in the classification workflow"
+            },
+            {
+              "name": "INVALID_S2",
+              "description": "Percentage (0-100) of invalid S2 observations discarded in the classification workflow (after cloud and cloud shadow filtering)"
+            }
+          ],
+          "raster:sampling": "area",
+          "raster:scale": 1,
+          "proj:shape": [6000, 6000],
+          "proj:transform": [0.0005, 0, 12, 0, -0.0005, 3, 0, 0, 1],
+          "data_type": "int16",
+          "gsd": 60,
+          "href": "https://services.terrascope.be/download/WORLDCOVER/ESA_WORLDCOVER_10M_2021_V200/MAP/ESA_WorldCover_10m_2021_v200_N00E012_Map/ESA_WorldCover_10m_2021_v200_N00E012_InputQuality.tif",
+          "auth:refs": [
+            "oidc"
+          ],
+          "updated": "2022-08-03T14:46:48.394310Z",
+          "file:size": 24022391
+        },
+        "Map": {
+          "raster:offset": 0,
+          "roles": [
+            "data"
+          ],
+          "alternate": {
+            "local": {
+              "href": "file:///data/MTDA/WORLDCOVER/ESA_WORLDCOVER_10M_2021_V200/MAP/ESA_WorldCover_10m_2021_v200_N00E012_Map/ESA_WorldCover_10m_2021_v200_N00E012_Map.tif"
+            }
+          },
+          "nodata": 0,
+          "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+          "title": "Map",
+          "bands": [
+            {
+              "name": "Map",
+              "classification:classes": [
+                {
+                  "name": "tree_cover",
+                  "color_hint": "006400",
+                  "title": "Tree cover",
+                  "value": 10
+                },
+                {
+                  "name": "shrubland",
+                  "color_hint": "FFBB22",
+                  "title": "Shrubland",
+                  "value": 20
+                },
+                {
+                  "name": "grassland",
+                  "color_hint": "FFFF4C",
+                  "title": "Grassland",
+                  "value": 30
+                },
+                {
+                  "name": "cropland",
+                  "color_hint": "F096FF",
+                  "title": "Cropland",
+                  "value": 40
+                },
+                {
+                  "name": "built-up",
+                  "color_hint": "FA0000",
+                  "title": "Built-up",
+                  "value": 50
+                },
+                {
+                  "name": "bare-sparse-vegetation",
+                  "color_hint": "B4B4B4",
+                  "title": "Bare/sparse vegetation",
+                  "value": 60
+                },
+                {
+                  "name": "snow-and-ice",
+                  "color_hint": "F0F0F0",
+                  "title": "Snow and ice",
+                  "value": 70
+                },
+                {
+                  "name": "permanent-water-bodies",
+                  "color_hint": "0064C8",
+                  "title": "Permanent water bodies",
+                  "value": 80
+                },
+                {
+                  "name": "herbaceous-wetlands",
+                  "color_hint": "0096A0",
+                  "title": "Herbaceous wetlands",
+                  "value": 90
+                },
+                {
+                  "name": "mangroves",
+                  "color_hint": "00CF75",
+                  "title": "Mangroves",
+                  "value": 95
+                },
+                {
+                  "name": "moss-and-lichen",
+                  "color_hint": "FAE6A0",
+                  "title": "Moss and lichen",
+                  "value": 100
+                }
+              ]
+            }
+          ],
+          "raster:sampling": "area",
+          "raster:scale": 1,
+          "proj:shape": [36000, 36000],
+          "proj:transform": [0.000083333333333333, 0, 12, 0, -0.000083333333333333, 3, 0, 0, 1],
+          "data_type": "uint8",
+          "href": "https://services.terrascope.be/download/WORLDCOVER/ESA_WORLDCOVER_10M_2021_V200/MAP/ESA_WorldCover_10m_2021_v200_N00E012_Map/ESA_WorldCover_10m_2021_v200_N00E012_Map.tif",
+          "auth:refs": [
+            "oidc"
+          ],
+          "updated": "2022-10-21T05:47:37.787944Z",
+          "file:size": 5002985
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "stac_version": "1.1.0",
+      "stac_extensions": [
+        "https://stac-extensions.github.io/processing/v1.2.0/schema.json",
+        "https://stac-extensions.github.io/product/v0.1.0/schema.json",
+        "https://stac-extensions.github.io/grid/v1.1.0/schema.json",
+        "https://stac-extensions.github.io/classification/v2.0.0/schema.json",
+        "https://stac-extensions.github.io/file/v2.1.0/schema.json",
+        "https://stac-extensions.github.io/raster/v2.0.0/schema.json",
+        "https://stac-extensions.github.io/projection/v2.0.0/schema.json",
+        "https://stac-extensions.github.io/alternate-assets/v1.2.0/schema.json",
+        "https://stac-extensions.github.io/authentication/v1.1.0/schema.json",
+        "https://stac-extensions.github.io/web-map-links/v1.3.0/schema.json"
+      ],
+      "id": "ESA_WorldCover_10m_2021_v200_N00E015_Map",
+      "collection": "esa-worldcover-map-10m-2021-v2",
+      "geometry": {
+        "coordinates": [
+          [
+            [15, 0],
+            [18, 0],
+            [18, 3],
+            [15, 3],
+            [15, 0]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "bbox": [15, 0, 18, 3],
+      "properties": {
+        "grid:code": "WORLDCOVER-N00E015",
+        "proj:code": "EPSG:4326",
+        "start_datetime": "2021-01-01T00:00:00Z",
+        "end_datetime": "2021-12-31T23:59:59Z",
+        "proj:geometry": {
+          "coordinates": [
+            [
+              [15, 0],
+              [18, 0],
+              [18, 3],
+              [15, 3],
+              [15, 0]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "created": "2025-07-02T15:40:28.549427Z",
+        "processing:facility": "VITO",
+        "processing:version": "200",
+        "product:type": "Map",
+        "title": "ESA_WorldCover_10m_2021_v200_N00E015_Map",
+        "proj:bbox": [15, 0, 18, 3],
+        "auth:schemes": {
+          "oidc": {
+            "openIdConnectUrl": "https://sso.terrascope.be/auth/realms/terrascope/.well-known/openid-configuration",
+            "description": "Authenticate with Terrascope OpenID Connect",
+            "type": "openIdConnect"
+          }
+        },
+        "datetime": "2021-01-01T00:00:00Z",
+        "instruments": [
+          "sar",
+          "msi"
+        ],
+        "constellation": "sentinel-1, sentinel-2",
+        "gsd": 10,
+        "processing:datetime": "2022-10-21T05:44:48Z",
+        "updated": "2025-07-02T15:42:17.063895Z",
+        "providers": [
+          {
+            "roles": [
+              "producer"
+            ],
+            "name": "ESA",
+            "url": "https://earth.esa.int/"
+          },
+          {
+            "roles": [
+              "processor",
+              "host"
+            ],
+            "name": "VITO",
+            "url": "https://terrascope.be/"
+          }
+        ]
+      },
+      "links": [
+        {
+          "rel": "self",
+          "type": "application/geo+json",
+          "href": "https://stac.terrascope.be/collections/esa-worldcover-map-10m-2021-v2/items/ESA_WorldCover_10m_2021_v200_N00E015_Map"
+        },
+        {
+          "rel": "parent",
+          "type": "application/json",
+          "href": "https://stac.terrascope.be/collections/esa-worldcover-map-10m-2021-v2"
+        },
+        {
+          "rel": "collection",
+          "type": "application/json",
+          "href": "https://stac.terrascope.be/collections/esa-worldcover-map-10m-2021-v2"
+        },
+        {
+          "rel": "root",
+          "type": "application/json",
+          "href": "https://stac.terrascope.be/"
+        },
+        {
+          "rel": "tilejson",
+          "href": "https://titiler.terrascope.be/collections/esa-worldcover-map-10m-2021-v2/items/ESA_WorldCover_10m_2021_v200_N00E015_Map/WebMercatorQuad/tilejson.json?assets=Map&colormap_name=worldcover",
+          "type": "application/json",
+          "title": "TileJSON"
+        }
+      ],
+      "assets": {
+        "preview": {
+          "proj:code": null,
+          "proj:shape": [256, 256],
+          "roles": [
+            "thumbnail",
+            "overview"
+          ],
+          "description": "Preview image",
+          "href": "https://titiler.terrascope.be/collections/esa-worldcover-map-10m-2021-v2/items/ESA_WorldCover_10m_2021_v200_N00E015_Map/preview?assets=Map&format=png&max_size=256&colormap_name=worldcover",
+          "type": "image/png",
+          "title": "Preview"
+        },
+        "InputQuality": {
+          "raster:offset": 0,
+          "roles": [
+            "data"
+          ],
+          "description": "Per pixel quality indicator showing the quality of the input data.",
+          "alternate": {
+            "local": {
+              "href": "file:///data/MTDA/WORLDCOVER/ESA_WORLDCOVER_10M_2021_V200/MAP/ESA_WorldCover_10m_2021_v200_N00E015_Map/ESA_WorldCover_10m_2021_v200_N00E015_InputQuality.tif"
+            }
+          },
+          "nodata": -1,
+          "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+          "title": "InputQuality",
+          "bands": [
+            {
+              "name": "NOBS_S1_GAMMA0",
+              "description": "Number of Sentinel-1 GAMMA0 observations used in the classification workflow"
+            },
+            {
+              "name": "NOBS_S2_L2A",
+              "description": "Number of Sentinel-2 L2A observations used in the classification workflow"
+            },
+            {
+              "name": "INVALID_S2",
+              "description": "Percentage (0-100) of invalid S2 observations discarded in the classification workflow (after cloud and cloud shadow filtering)"
+            }
+          ],
+          "raster:sampling": "area",
+          "raster:scale": 1,
+          "proj:shape": [6000, 6000],
+          "proj:transform": [0.0005, 0, 15, 0, -0.0005, 3, 0, 0, 1],
+          "data_type": "int16",
+          "gsd": 60,
+          "href": "https://services.terrascope.be/download/WORLDCOVER/ESA_WORLDCOVER_10M_2021_V200/MAP/ESA_WorldCover_10m_2021_v200_N00E015_Map/ESA_WorldCover_10m_2021_v200_N00E015_InputQuality.tif",
+          "auth:refs": [
+            "oidc"
+          ],
+          "updated": "2022-08-03T14:46:59.347470Z",
+          "file:size": 24330896
+        },
+        "Map": {
+          "raster:offset": 0,
+          "roles": [
+            "data"
+          ],
+          "alternate": {
+            "local": {
+              "href": "file:///data/MTDA/WORLDCOVER/ESA_WORLDCOVER_10M_2021_V200/MAP/ESA_WorldCover_10m_2021_v200_N00E015_Map/ESA_WorldCover_10m_2021_v200_N00E015_Map.tif"
+            }
+          },
+          "nodata": 0,
+          "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+          "title": "Map",
+          "bands": [
+            {
+              "name": "Map",
+              "classification:classes": [
+                {
+                  "name": "tree_cover",
+                  "color_hint": "006400",
+                  "title": "Tree cover",
+                  "value": 10
+                },
+                {
+                  "name": "shrubland",
+                  "color_hint": "FFBB22",
+                  "title": "Shrubland",
+                  "value": 20
+                },
+                {
+                  "name": "grassland",
+                  "color_hint": "FFFF4C",
+                  "title": "Grassland",
+                  "value": 30
+                },
+                {
+                  "name": "cropland",
+                  "color_hint": "F096FF",
+                  "title": "Cropland",
+                  "value": 40
+                },
+                {
+                  "name": "built-up",
+                  "color_hint": "FA0000",
+                  "title": "Built-up",
+                  "value": 50
+                },
+                {
+                  "name": "bare-sparse-vegetation",
+                  "color_hint": "B4B4B4",
+                  "title": "Bare/sparse vegetation",
+                  "value": 60
+                },
+                {
+                  "name": "snow-and-ice",
+                  "color_hint": "F0F0F0",
+                  "title": "Snow and ice",
+                  "value": 70
+                },
+                {
+                  "name": "permanent-water-bodies",
+                  "color_hint": "0064C8",
+                  "title": "Permanent water bodies",
+                  "value": 80
+                },
+                {
+                  "name": "herbaceous-wetlands",
+                  "color_hint": "0096A0",
+                  "title": "Herbaceous wetlands",
+                  "value": 90
+                },
+                {
+                  "name": "mangroves",
+                  "color_hint": "00CF75",
+                  "title": "Mangroves",
+                  "value": 95
+                },
+                {
+                  "name": "moss-and-lichen",
+                  "color_hint": "FAE6A0",
+                  "title": "Moss and lichen",
+                  "value": 100
+                }
+              ]
+            }
+          ],
+          "raster:sampling": "area",
+          "raster:scale": 1,
+          "proj:shape": [36000, 36000],
+          "proj:transform": [0.000083333333333333, 0, 15, 0, -0.000083333333333333, 3, 0, 0, 1],
+          "data_type": "uint8",
+          "href": "https://services.terrascope.be/download/WORLDCOVER/ESA_WORLDCOVER_10M_2021_V200/MAP/ESA_WorldCover_10m_2021_v200_N00E015_Map/ESA_WorldCover_10m_2021_v200_N00E015_Map.tif",
+          "auth:refs": [
+            "oidc"
+          ],
+          "updated": "2022-10-21T05:44:48.005280Z",
+          "file:size": 8291184
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "stac_version": "1.1.0",
+      "stac_extensions": [
+        "https://stac-extensions.github.io/processing/v1.2.0/schema.json",
+        "https://stac-extensions.github.io/product/v0.1.0/schema.json",
+        "https://stac-extensions.github.io/grid/v1.1.0/schema.json",
+        "https://stac-extensions.github.io/classification/v2.0.0/schema.json",
+        "https://stac-extensions.github.io/file/v2.1.0/schema.json",
+        "https://stac-extensions.github.io/raster/v2.0.0/schema.json",
+        "https://stac-extensions.github.io/projection/v2.0.0/schema.json",
+        "https://stac-extensions.github.io/alternate-assets/v1.2.0/schema.json",
+        "https://stac-extensions.github.io/authentication/v1.1.0/schema.json",
+        "https://stac-extensions.github.io/web-map-links/v1.3.0/schema.json"
+      ],
+      "id": "ESA_WorldCover_10m_2021_v200_N00E018_Map",
+      "collection": "esa-worldcover-map-10m-2021-v2",
+      "geometry": {
+        "coordinates": [
+          [
+            [18, 0],
+            [21, 0],
+            [21, 3],
+            [18, 3],
+            [18, 0]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "bbox": [18, 0, 21, 3],
+      "properties": {
+        "grid:code": "WORLDCOVER-N00E018",
+        "proj:code": "EPSG:4326",
+        "start_datetime": "2021-01-01T00:00:00Z",
+        "end_datetime": "2021-12-31T23:59:59Z",
+        "proj:geometry": {
+          "coordinates": [
+            [
+              [18, 0],
+              [21, 0],
+              [21, 3],
+              [18, 3],
+              [18, 0]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "created": "2025-07-02T15:41:01.007330Z",
+        "processing:facility": "VITO",
+        "processing:version": "200",
+        "product:type": "Map",
+        "title": "ESA_WorldCover_10m_2021_v200_N00E018_Map",
+        "proj:bbox": [18, 0, 21, 3],
+        "auth:schemes": {
+          "oidc": {
+            "openIdConnectUrl": "https://sso.terrascope.be/auth/realms/terrascope/.well-known/openid-configuration",
+            "description": "Authenticate with Terrascope OpenID Connect",
+            "type": "openIdConnect"
+          }
+        },
+        "datetime": "2021-01-01T00:00:00Z",
+        "instruments": [
+          "sar",
+          "msi"
+        ],
+        "constellation": "sentinel-1, sentinel-2",
+        "gsd": 10,
+        "processing:datetime": "2022-10-21T05:44:12Z",
+        "updated": "2025-07-02T15:42:17.134708Z",
+        "providers": [
+          {
+            "roles": [
+              "producer"
+            ],
+            "name": "ESA",
+            "url": "https://earth.esa.int/"
+          },
+          {
+            "roles": [
+              "processor",
+              "host"
+            ],
+            "name": "VITO",
+            "url": "https://terrascope.be/"
+          }
+        ]
+      },
+      "links": [
+        {
+          "rel": "self",
+          "type": "application/geo+json",
+          "href": "https://stac.terrascope.be/collections/esa-worldcover-map-10m-2021-v2/items/ESA_WorldCover_10m_2021_v200_N00E018_Map"
+        },
+        {
+          "rel": "parent",
+          "type": "application/json",
+          "href": "https://stac.terrascope.be/collections/esa-worldcover-map-10m-2021-v2"
+        },
+        {
+          "rel": "collection",
+          "type": "application/json",
+          "href": "https://stac.terrascope.be/collections/esa-worldcover-map-10m-2021-v2"
+        },
+        {
+          "rel": "root",
+          "type": "application/json",
+          "href": "https://stac.terrascope.be/"
+        },
+        {
+          "rel": "tilejson",
+          "href": "https://titiler.terrascope.be/collections/esa-worldcover-map-10m-2021-v2/items/ESA_WorldCover_10m_2021_v200_N00E018_Map/WebMercatorQuad/tilejson.json?assets=Map&colormap_name=worldcover",
+          "type": "application/json",
+          "title": "TileJSON"
+        }
+      ],
+      "assets": {
+        "preview": {
+          "proj:code": null,
+          "proj:shape": [256, 256],
+          "roles": [
+            "thumbnail",
+            "overview"
+          ],
+          "description": "Preview image",
+          "href": "https://titiler.terrascope.be/collections/esa-worldcover-map-10m-2021-v2/items/ESA_WorldCover_10m_2021_v200_N00E018_Map/preview?assets=Map&format=png&max_size=256&colormap_name=worldcover",
+          "type": "image/png",
+          "title": "Preview"
+        },
+        "InputQuality": {
+          "raster:offset": 0,
+          "roles": [
+            "data"
+          ],
+          "description": "Per pixel quality indicator showing the quality of the input data.",
+          "alternate": {
+            "local": {
+              "href": "file:///data/MTDA/WORLDCOVER/ESA_WORLDCOVER_10M_2021_V200/MAP/ESA_WorldCover_10m_2021_v200_N00E018_Map/ESA_WorldCover_10m_2021_v200_N00E018_InputQuality.tif"
+            }
+          },
+          "nodata": -1,
+          "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+          "title": "InputQuality",
+          "bands": [
+            {
+              "name": "NOBS_S1_GAMMA0",
+              "description": "Number of Sentinel-1 GAMMA0 observations used in the classification workflow"
+            },
+            {
+              "name": "NOBS_S2_L2A",
+              "description": "Number of Sentinel-2 L2A observations used in the classification workflow"
+            },
+            {
+              "name": "INVALID_S2",
+              "description": "Percentage (0-100) of invalid S2 observations discarded in the classification workflow (after cloud and cloud shadow filtering)"
+            }
+          ],
+          "raster:sampling": "area",
+          "raster:scale": 1,
+          "proj:shape": [6000, 6000],
+          "proj:transform": [0.0005, 0, 18, 0, -0.0005, 3, 0, 0, 1],
+          "data_type": "int16",
+          "gsd": 60,
+          "href": "https://services.terrascope.be/download/WORLDCOVER/ESA_WORLDCOVER_10M_2021_V200/MAP/ESA_WorldCover_10m_2021_v200_N00E018_Map/ESA_WorldCover_10m_2021_v200_N00E018_InputQuality.tif",
+          "auth:refs": [
+            "oidc"
+          ],
+          "updated": "2022-08-03T14:46:37.249928Z",
+          "file:size": 23654460
+        },
+        "Map": {
+          "raster:offset": 0,
+          "roles": [
+            "data"
+          ],
+          "alternate": {
+            "local": {
+              "href": "file:///data/MTDA/WORLDCOVER/ESA_WORLDCOVER_10M_2021_V200/MAP/ESA_WorldCover_10m_2021_v200_N00E018_Map/ESA_WorldCover_10m_2021_v200_N00E018_Map.tif"
+            }
+          },
+          "nodata": 0,
+          "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+          "title": "Map",
+          "bands": [
+            {
+              "name": "Map",
+              "classification:classes": [
+                {
+                  "name": "tree_cover",
+                  "color_hint": "006400",
+                  "title": "Tree cover",
+                  "value": 10
+                },
+                {
+                  "name": "shrubland",
+                  "color_hint": "FFBB22",
+                  "title": "Shrubland",
+                  "value": 20
+                },
+                {
+                  "name": "grassland",
+                  "color_hint": "FFFF4C",
+                  "title": "Grassland",
+                  "value": 30
+                },
+                {
+                  "name": "cropland",
+                  "color_hint": "F096FF",
+                  "title": "Cropland",
+                  "value": 40
+                },
+                {
+                  "name": "built-up",
+                  "color_hint": "FA0000",
+                  "title": "Built-up",
+                  "value": 50
+                },
+                {
+                  "name": "bare-sparse-vegetation",
+                  "color_hint": "B4B4B4",
+                  "title": "Bare/sparse vegetation",
+                  "value": 60
+                },
+                {
+                  "name": "snow-and-ice",
+                  "color_hint": "F0F0F0",
+                  "title": "Snow and ice",
+                  "value": 70
+                },
+                {
+                  "name": "permanent-water-bodies",
+                  "color_hint": "0064C8",
+                  "title": "Permanent water bodies",
+                  "value": 80
+                },
+                {
+                  "name": "herbaceous-wetlands",
+                  "color_hint": "0096A0",
+                  "title": "Herbaceous wetlands",
+                  "value": 90
+                },
+                {
+                  "name": "mangroves",
+                  "color_hint": "00CF75",
+                  "title": "Mangroves",
+                  "value": 95
+                },
+                {
+                  "name": "moss-and-lichen",
+                  "color_hint": "FAE6A0",
+                  "title": "Moss and lichen",
+                  "value": 100
+                }
+              ]
+            }
+          ],
+          "raster:sampling": "area",
+          "raster:scale": 1,
+          "proj:shape": [36000, 36000],
+          "proj:transform": [0.000083333333333333, 0, 18, 0, -0.000083333333333333, 3, 0, 0, 1],
+          "data_type": "uint8",
+          "href": "https://services.terrascope.be/download/WORLDCOVER/ESA_WORLDCOVER_10M_2021_V200/MAP/ESA_WorldCover_10m_2021_v200_N00E018_Map/ESA_WorldCover_10m_2021_v200_N00E018_Map.tif",
+          "auth:refs": [
+            "oidc"
+          ],
+          "updated": "2022-10-21T05:44:12.454885Z",
+          "file:size": 21029438
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "stac_version": "1.1.0",
+      "stac_extensions": [
+        "https://stac-extensions.github.io/processing/v1.2.0/schema.json",
+        "https://stac-extensions.github.io/product/v0.1.0/schema.json",
+        "https://stac-extensions.github.io/grid/v1.1.0/schema.json",
+        "https://stac-extensions.github.io/classification/v2.0.0/schema.json",
+        "https://stac-extensions.github.io/file/v2.1.0/schema.json",
+        "https://stac-extensions.github.io/raster/v2.0.0/schema.json",
+        "https://stac-extensions.github.io/projection/v2.0.0/schema.json",
+        "https://stac-extensions.github.io/alternate-assets/v1.2.0/schema.json",
+        "https://stac-extensions.github.io/authentication/v1.1.0/schema.json",
+        "https://stac-extensions.github.io/web-map-links/v1.3.0/schema.json"
+      ],
+      "id": "ESA_WorldCover_10m_2021_v200_N00E021_Map",
+      "collection": "esa-worldcover-map-10m-2021-v2",
+      "geometry": {
+        "coordinates": [
+          [
+            [21, 0],
+            [24, 0],
+            [24, 3],
+            [21, 3],
+            [21, 0]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "bbox": [21, 0, 24, 3],
+      "properties": {
+        "grid:code": "WORLDCOVER-N00E021",
+        "proj:code": "EPSG:4326",
+        "start_datetime": "2021-01-01T00:00:00Z",
+        "end_datetime": "2021-12-31T23:59:59Z",
+        "proj:geometry": {
+          "coordinates": [
+            [
+              [21, 0],
+              [24, 0],
+              [24, 3],
+              [21, 3],
+              [21, 0]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "created": "2025-07-02T15:44:09.515614Z",
+        "processing:facility": "VITO",
+        "processing:version": "200",
+        "product:type": "Map",
+        "title": "ESA_WorldCover_10m_2021_v200_N00E021_Map",
+        "proj:bbox": [21, 0, 24, 3],
+        "auth:schemes": {
+          "oidc": {
+            "openIdConnectUrl": "https://sso.terrascope.be/auth/realms/terrascope/.well-known/openid-configuration",
+            "description": "Authenticate with Terrascope OpenID Connect",
+            "type": "openIdConnect"
+          }
+        },
+        "datetime": "2021-01-01T00:00:00Z",
+        "instruments": [
+          "sar",
+          "msi"
+        ],
+        "constellation": "sentinel-1, sentinel-2",
+        "gsd": 10,
+        "processing:datetime": "2022-10-21T05:47:19Z",
+        "updated": "2025-07-02T15:45:31.612343Z",
+        "providers": [
+          {
+            "roles": [
+              "producer"
+            ],
+            "name": "ESA",
+            "url": "https://earth.esa.int/"
+          },
+          {
+            "roles": [
+              "processor",
+              "host"
+            ],
+            "name": "VITO",
+            "url": "https://terrascope.be/"
+          }
+        ]
+      },
+      "links": [
+        {
+          "rel": "self",
+          "type": "application/geo+json",
+          "href": "https://stac.terrascope.be/collections/esa-worldcover-map-10m-2021-v2/items/ESA_WorldCover_10m_2021_v200_N00E021_Map"
+        },
+        {
+          "rel": "parent",
+          "type": "application/json",
+          "href": "https://stac.terrascope.be/collections/esa-worldcover-map-10m-2021-v2"
+        },
+        {
+          "rel": "collection",
+          "type": "application/json",
+          "href": "https://stac.terrascope.be/collections/esa-worldcover-map-10m-2021-v2"
+        },
+        {
+          "rel": "root",
+          "type": "application/json",
+          "href": "https://stac.terrascope.be/"
+        },
+        {
+          "rel": "tilejson",
+          "href": "https://titiler.terrascope.be/collections/esa-worldcover-map-10m-2021-v2/items/ESA_WorldCover_10m_2021_v200_N00E021_Map/WebMercatorQuad/tilejson.json?assets=Map&colormap_name=worldcover",
+          "type": "application/json",
+          "title": "TileJSON"
+        }
+      ],
+      "assets": {
+        "preview": {
+          "proj:code": null,
+          "proj:shape": [256, 256],
+          "roles": [
+            "thumbnail",
+            "overview"
+          ],
+          "description": "Preview image",
+          "href": "https://titiler.terrascope.be/collections/esa-worldcover-map-10m-2021-v2/items/ESA_WorldCover_10m_2021_v200_N00E021_Map/preview?assets=Map&format=png&max_size=256&colormap_name=worldcover",
+          "type": "image/png",
+          "title": "Preview"
+        },
+        "InputQuality": {
+          "raster:offset": 0,
+          "roles": [
+            "data"
+          ],
+          "description": "Per pixel quality indicator showing the quality of the input data.",
+          "alternate": {
+            "local": {
+              "href": "file:///data/MTDA/WORLDCOVER/ESA_WORLDCOVER_10M_2021_V200/MAP/ESA_WorldCover_10m_2021_v200_N00E021_Map/ESA_WorldCover_10m_2021_v200_N00E021_InputQuality.tif"
+            }
+          },
+          "nodata": -1,
+          "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+          "title": "InputQuality",
+          "bands": [
+            {
+              "name": "NOBS_S1_GAMMA0",
+              "description": "Number of Sentinel-1 GAMMA0 observations used in the classification workflow"
+            },
+            {
+              "name": "NOBS_S2_L2A",
+              "description": "Number of Sentinel-2 L2A observations used in the classification workflow"
+            },
+            {
+              "name": "INVALID_S2",
+              "description": "Percentage (0-100) of invalid S2 observations discarded in the classification workflow (after cloud and cloud shadow filtering)"
+            }
+          ],
+          "raster:sampling": "area",
+          "raster:scale": 1,
+          "proj:shape": [6000, 6000],
+          "proj:transform": [0.0005, 0, 21, 0, -0.0005, 3, 0, 0, 1],
+          "data_type": "int16",
+          "gsd": 60,
+          "href": "https://services.terrascope.be/download/WORLDCOVER/ESA_WORLDCOVER_10M_2021_V200/MAP/ESA_WorldCover_10m_2021_v200_N00E021_Map/ESA_WorldCover_10m_2021_v200_N00E021_InputQuality.tif",
+          "auth:refs": [
+            "oidc"
+          ],
+          "updated": "2022-08-03T14:46:25.354916Z",
+          "file:size": 23159195
+        },
+        "Map": {
+          "raster:offset": 0,
+          "roles": [
+            "data"
+          ],
+          "alternate": {
+            "local": {
+              "href": "file:///data/MTDA/WORLDCOVER/ESA_WORLDCOVER_10M_2021_V200/MAP/ESA_WorldCover_10m_2021_v200_N00E021_Map/ESA_WorldCover_10m_2021_v200_N00E021_Map.tif"
+            }
+          },
+          "nodata": 0,
+          "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+          "title": "Map",
+          "bands": [
+            {
+              "name": "Map",
+              "classification:classes": [
+                {
+                  "name": "tree_cover",
+                  "color_hint": "006400",
+                  "title": "Tree cover",
+                  "value": 10
+                },
+                {
+                  "name": "shrubland",
+                  "color_hint": "FFBB22",
+                  "title": "Shrubland",
+                  "value": 20
+                },
+                {
+                  "name": "grassland",
+                  "color_hint": "FFFF4C",
+                  "title": "Grassland",
+                  "value": 30
+                },
+                {
+                  "name": "cropland",
+                  "color_hint": "F096FF",
+                  "title": "Cropland",
+                  "value": 40
+                },
+                {
+                  "name": "built-up",
+                  "color_hint": "FA0000",
+                  "title": "Built-up",
+                  "value": 50
+                },
+                {
+                  "name": "bare-sparse-vegetation",
+                  "color_hint": "B4B4B4",
+                  "title": "Bare/sparse vegetation",
+                  "value": 60
+                },
+                {
+                  "name": "snow-and-ice",
+                  "color_hint": "F0F0F0",
+                  "title": "Snow and ice",
+                  "value": 70
+                },
+                {
+                  "name": "permanent-water-bodies",
+                  "color_hint": "0064C8",
+                  "title": "Permanent water bodies",
+                  "value": 80
+                },
+                {
+                  "name": "herbaceous-wetlands",
+                  "color_hint": "0096A0",
+                  "title": "Herbaceous wetlands",
+                  "value": 90
+                },
+                {
+                  "name": "mangroves",
+                  "color_hint": "00CF75",
+                  "title": "Mangroves",
+                  "value": 95
+                },
+                {
+                  "name": "moss-and-lichen",
+                  "color_hint": "FAE6A0",
+                  "title": "Moss and lichen",
+                  "value": 100
+                }
+              ]
+            }
+          ],
+          "raster:sampling": "area",
+          "raster:scale": 1,
+          "proj:shape": [36000, 36000],
+          "proj:transform": [0.000083333333333333, 0, 21, 0, -0.000083333333333333, 3, 0, 0, 1],
+          "data_type": "uint8",
+          "href": "https://services.terrascope.be/download/WORLDCOVER/ESA_WORLDCOVER_10M_2021_V200/MAP/ESA_WorldCover_10m_2021_v200_N00E021_Map/ESA_WorldCover_10m_2021_v200_N00E021_Map.tif",
+          "auth:refs": [
+            "oidc"
+          ],
+          "updated": "2022-10-21T05:47:19.388623Z",
+          "file:size": 22522133
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "stac_version": "1.1.0",
+      "stac_extensions": [
+        "https://stac-extensions.github.io/processing/v1.2.0/schema.json",
+        "https://stac-extensions.github.io/product/v0.1.0/schema.json",
+        "https://stac-extensions.github.io/grid/v1.1.0/schema.json",
+        "https://stac-extensions.github.io/classification/v2.0.0/schema.json",
+        "https://stac-extensions.github.io/file/v2.1.0/schema.json",
+        "https://stac-extensions.github.io/raster/v2.0.0/schema.json",
+        "https://stac-extensions.github.io/projection/v2.0.0/schema.json",
+        "https://stac-extensions.github.io/alternate-assets/v1.2.0/schema.json",
+        "https://stac-extensions.github.io/authentication/v1.1.0/schema.json",
+        "https://stac-extensions.github.io/web-map-links/v1.3.0/schema.json"
+      ],
+      "id": "ESA_WorldCover_10m_2021_v200_N00E024_Map",
+      "collection": "esa-worldcover-map-10m-2021-v2",
+      "geometry": {
+        "coordinates": [
+          [
+            [24, 0],
+            [27, 0],
+            [27, 3],
+            [24, 3],
+            [24, 0]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "bbox": [24, 0, 27, 3],
+      "properties": {
+        "grid:code": "WORLDCOVER-N00E024",
+        "proj:code": "EPSG:4326",
+        "start_datetime": "2021-01-01T00:00:00Z",
+        "end_datetime": "2021-12-31T23:59:59Z",
+        "proj:geometry": {
+          "coordinates": [
+            [
+              [24, 0],
+              [27, 0],
+              [27, 3],
+              [24, 3],
+              [24, 0]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "created": "2025-07-02T15:40:35.169280Z",
+        "processing:facility": "VITO",
+        "processing:version": "200",
+        "product:type": "Map",
+        "title": "ESA_WorldCover_10m_2021_v200_N00E024_Map",
+        "proj:bbox": [24, 0, 27, 3],
+        "auth:schemes": {
+          "oidc": {
+            "openIdConnectUrl": "https://sso.terrascope.be/auth/realms/terrascope/.well-known/openid-configuration",
+            "description": "Authenticate with Terrascope OpenID Connect",
+            "type": "openIdConnect"
+          }
+        },
+        "datetime": "2021-01-01T00:00:00Z",
+        "instruments": [
+          "sar",
+          "msi"
+        ],
+        "constellation": "sentinel-1, sentinel-2",
+        "gsd": 10,
+        "processing:datetime": "2022-10-21T05:46:41Z",
+        "updated": "2025-07-02T15:42:17.075117Z",
+        "providers": [
+          {
+            "roles": [
+              "producer"
+            ],
+            "name": "ESA",
+            "url": "https://earth.esa.int/"
+          },
+          {
+            "roles": [
+              "processor",
+              "host"
+            ],
+            "name": "VITO",
+            "url": "https://terrascope.be/"
+          }
+        ]
+      },
+      "links": [
+        {
+          "rel": "self",
+          "type": "application/geo+json",
+          "href": "https://stac.terrascope.be/collections/esa-worldcover-map-10m-2021-v2/items/ESA_WorldCover_10m_2021_v200_N00E024_Map"
+        },
+        {
+          "rel": "parent",
+          "type": "application/json",
+          "href": "https://stac.terrascope.be/collections/esa-worldcover-map-10m-2021-v2"
+        },
+        {
+          "rel": "collection",
+          "type": "application/json",
+          "href": "https://stac.terrascope.be/collections/esa-worldcover-map-10m-2021-v2"
+        },
+        {
+          "rel": "root",
+          "type": "application/json",
+          "href": "https://stac.terrascope.be/"
+        },
+        {
+          "rel": "tilejson",
+          "href": "https://titiler.terrascope.be/collections/esa-worldcover-map-10m-2021-v2/items/ESA_WorldCover_10m_2021_v200_N00E024_Map/WebMercatorQuad/tilejson.json?assets=Map&colormap_name=worldcover",
+          "type": "application/json",
+          "title": "TileJSON"
+        }
+      ],
+      "assets": {
+        "preview": {
+          "proj:code": null,
+          "proj:shape": [256, 256],
+          "roles": [
+            "thumbnail",
+            "overview"
+          ],
+          "description": "Preview image",
+          "href": "https://titiler.terrascope.be/collections/esa-worldcover-map-10m-2021-v2/items/ESA_WorldCover_10m_2021_v200_N00E024_Map/preview?assets=Map&format=png&max_size=256&colormap_name=worldcover",
+          "type": "image/png",
+          "title": "Preview"
+        },
+        "InputQuality": {
+          "raster:offset": 0,
+          "roles": [
+            "data"
+          ],
+          "description": "Per pixel quality indicator showing the quality of the input data.",
+          "alternate": {
+            "local": {
+              "href": "file:///data/MTDA/WORLDCOVER/ESA_WORLDCOVER_10M_2021_V200/MAP/ESA_WorldCover_10m_2021_v200_N00E024_Map/ESA_WorldCover_10m_2021_v200_N00E024_InputQuality.tif"
+            }
+          },
+          "nodata": -1,
+          "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+          "title": "InputQuality",
+          "bands": [
+            {
+              "name": "NOBS_S1_GAMMA0",
+              "description": "Number of Sentinel-1 GAMMA0 observations used in the classification workflow"
+            },
+            {
+              "name": "NOBS_S2_L2A",
+              "description": "Number of Sentinel-2 L2A observations used in the classification workflow"
+            },
+            {
+              "name": "INVALID_S2",
+              "description": "Percentage (0-100) of invalid S2 observations discarded in the classification workflow (after cloud and cloud shadow filtering)"
+            }
+          ],
+          "raster:sampling": "area",
+          "raster:scale": 1,
+          "proj:shape": [6000, 6000],
+          "proj:transform": [0.0005, 0, 24, 0, -0.0005, 3, 0, 0, 1],
+          "data_type": "int16",
+          "gsd": 60,
+          "href": "https://services.terrascope.be/download/WORLDCOVER/ESA_WORLDCOVER_10M_2021_V200/MAP/ESA_WorldCover_10m_2021_v200_N00E024_Map/ESA_WorldCover_10m_2021_v200_N00E024_InputQuality.tif",
+          "auth:refs": [
+            "oidc"
+          ],
+          "updated": "2022-08-03T14:46:24.712285Z",
+          "file:size": 23251008
+        },
+        "Map": {
+          "raster:offset": 0,
+          "roles": [
+            "data"
+          ],
+          "alternate": {
+            "local": {
+              "href": "file:///data/MTDA/WORLDCOVER/ESA_WORLDCOVER_10M_2021_V200/MAP/ESA_WorldCover_10m_2021_v200_N00E024_Map/ESA_WorldCover_10m_2021_v200_N00E024_Map.tif"
+            }
+          },
+          "nodata": 0,
+          "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+          "title": "Map",
+          "bands": [
+            {
+              "name": "Map",
+              "classification:classes": [
+                {
+                  "name": "tree_cover",
+                  "color_hint": "006400",
+                  "title": "Tree cover",
+                  "value": 10
+                },
+                {
+                  "name": "shrubland",
+                  "color_hint": "FFBB22",
+                  "title": "Shrubland",
+                  "value": 20
+                },
+                {
+                  "name": "grassland",
+                  "color_hint": "FFFF4C",
+                  "title": "Grassland",
+                  "value": 30
+                },
+                {
+                  "name": "cropland",
+                  "color_hint": "F096FF",
+                  "title": "Cropland",
+                  "value": 40
+                },
+                {
+                  "name": "built-up",
+                  "color_hint": "FA0000",
+                  "title": "Built-up",
+                  "value": 50
+                },
+                {
+                  "name": "bare-sparse-vegetation",
+                  "color_hint": "B4B4B4",
+                  "title": "Bare/sparse vegetation",
+                  "value": 60
+                },
+                {
+                  "name": "snow-and-ice",
+                  "color_hint": "F0F0F0",
+                  "title": "Snow and ice",
+                  "value": 70
+                },
+                {
+                  "name": "permanent-water-bodies",
+                  "color_hint": "0064C8",
+                  "title": "Permanent water bodies",
+                  "value": 80
+                },
+                {
+                  "name": "herbaceous-wetlands",
+                  "color_hint": "0096A0",
+                  "title": "Herbaceous wetlands",
+                  "value": 90
+                },
+                {
+                  "name": "mangroves",
+                  "color_hint": "00CF75",
+                  "title": "Mangroves",
+                  "value": 95
+                },
+                {
+                  "name": "moss-and-lichen",
+                  "color_hint": "FAE6A0",
+                  "title": "Moss and lichen",
+                  "value": 100
+                }
+              ]
+            }
+          ],
+          "raster:sampling": "area",
+          "raster:scale": 1,
+          "proj:shape": [36000, 36000],
+          "proj:transform": [0.000083333333333333, 0, 24, 0, -0.000083333333333333, 3, 0, 0, 1],
+          "data_type": "uint8",
+          "href": "https://services.terrascope.be/download/WORLDCOVER/ESA_WORLDCOVER_10M_2021_V200/MAP/ESA_WorldCover_10m_2021_v200_N00E024_Map/ESA_WorldCover_10m_2021_v200_N00E024_Map.tif",
+          "auth:refs": [
+            "oidc"
+          ],
+          "updated": "2022-10-21T05:46:41.188223Z",
+          "file:size": 16098215
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "stac_version": "1.1.0",
+      "stac_extensions": [
+        "https://stac-extensions.github.io/processing/v1.2.0/schema.json",
+        "https://stac-extensions.github.io/product/v0.1.0/schema.json",
+        "https://stac-extensions.github.io/grid/v1.1.0/schema.json",
+        "https://stac-extensions.github.io/classification/v2.0.0/schema.json",
+        "https://stac-extensions.github.io/file/v2.1.0/schema.json",
+        "https://stac-extensions.github.io/raster/v2.0.0/schema.json",
+        "https://stac-extensions.github.io/projection/v2.0.0/schema.json",
+        "https://stac-extensions.github.io/alternate-assets/v1.2.0/schema.json",
+        "https://stac-extensions.github.io/authentication/v1.1.0/schema.json",
+        "https://stac-extensions.github.io/web-map-links/v1.3.0/schema.json"
+      ],
+      "id": "ESA_WorldCover_10m_2021_v200_N00E027_Map",
+      "collection": "esa-worldcover-map-10m-2021-v2",
+      "geometry": {
+        "coordinates": [
+          [
+            [27, 0],
+            [30, 0],
+            [30, 3],
+            [27, 3],
+            [27, 0]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "bbox": [27, 0, 30, 3],
+      "properties": {
+        "grid:code": "WORLDCOVER-N00E027",
+        "proj:code": "EPSG:4326",
+        "start_datetime": "2021-01-01T00:00:00Z",
+        "end_datetime": "2021-12-31T23:59:59Z",
+        "proj:geometry": {
+          "coordinates": [
+            [
+              [27, 0],
+              [30, 0],
+              [30, 3],
+              [27, 3],
+              [27, 0]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "created": "2025-07-02T15:41:04.853175Z",
+        "processing:facility": "VITO",
+        "processing:version": "200",
+        "product:type": "Map",
+        "title": "ESA_WorldCover_10m_2021_v200_N00E027_Map",
+        "proj:bbox": [27, 0, 30, 3],
+        "auth:schemes": {
+          "oidc": {
+            "openIdConnectUrl": "https://sso.terrascope.be/auth/realms/terrascope/.well-known/openid-configuration",
+            "description": "Authenticate with Terrascope OpenID Connect",
+            "type": "openIdConnect"
+          }
+        },
+        "datetime": "2021-01-01T00:00:00Z",
+        "instruments": [
+          "sar",
+          "msi"
+        ],
+        "constellation": "sentinel-1, sentinel-2",
+        "gsd": 10,
+        "processing:datetime": "2022-10-21T05:47:36Z",
+        "updated": "2025-07-02T15:42:17.146103Z",
+        "providers": [
+          {
+            "roles": [
+              "producer"
+            ],
+            "name": "ESA",
+            "url": "https://earth.esa.int/"
+          },
+          {
+            "roles": [
+              "processor",
+              "host"
+            ],
+            "name": "VITO",
+            "url": "https://terrascope.be/"
+          }
+        ]
+      },
+      "links": [
+        {
+          "rel": "self",
+          "type": "application/geo+json",
+          "href": "https://stac.terrascope.be/collections/esa-worldcover-map-10m-2021-v2/items/ESA_WorldCover_10m_2021_v200_N00E027_Map"
+        },
+        {
+          "rel": "parent",
+          "type": "application/json",
+          "href": "https://stac.terrascope.be/collections/esa-worldcover-map-10m-2021-v2"
+        },
+        {
+          "rel": "collection",
+          "type": "application/json",
+          "href": "https://stac.terrascope.be/collections/esa-worldcover-map-10m-2021-v2"
+        },
+        {
+          "rel": "root",
+          "type": "application/json",
+          "href": "https://stac.terrascope.be/"
+        },
+        {
+          "rel": "tilejson",
+          "href": "https://titiler.terrascope.be/collections/esa-worldcover-map-10m-2021-v2/items/ESA_WorldCover_10m_2021_v200_N00E027_Map/WebMercatorQuad/tilejson.json?assets=Map&colormap_name=worldcover",
+          "type": "application/json",
+          "title": "TileJSON"
+        }
+      ],
+      "assets": {
+        "preview": {
+          "proj:code": null,
+          "proj:shape": [256, 256],
+          "roles": [
+            "thumbnail",
+            "overview"
+          ],
+          "description": "Preview image",
+          "href": "https://titiler.terrascope.be/collections/esa-worldcover-map-10m-2021-v2/items/ESA_WorldCover_10m_2021_v200_N00E027_Map/preview?assets=Map&format=png&max_size=256&colormap_name=worldcover",
+          "type": "image/png",
+          "title": "Preview"
+        },
+        "InputQuality": {
+          "raster:offset": 0,
+          "roles": [
+            "data"
+          ],
+          "description": "Per pixel quality indicator showing the quality of the input data.",
+          "alternate": {
+            "local": {
+              "href": "file:///data/MTDA/WORLDCOVER/ESA_WORLDCOVER_10M_2021_V200/MAP/ESA_WorldCover_10m_2021_v200_N00E027_Map/ESA_WorldCover_10m_2021_v200_N00E027_InputQuality.tif"
+            }
+          },
+          "nodata": -1,
+          "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+          "title": "InputQuality",
+          "bands": [
+            {
+              "name": "NOBS_S1_GAMMA0",
+              "description": "Number of Sentinel-1 GAMMA0 observations used in the classification workflow"
+            },
+            {
+              "name": "NOBS_S2_L2A",
+              "description": "Number of Sentinel-2 L2A observations used in the classification workflow"
+            },
+            {
+              "name": "INVALID_S2",
+              "description": "Percentage (0-100) of invalid S2 observations discarded in the classification workflow (after cloud and cloud shadow filtering)"
+            }
+          ],
+          "raster:sampling": "area",
+          "raster:scale": 1,
+          "proj:shape": [6000, 6000],
+          "proj:transform": [0.0005, 0, 27, 0, -0.0005, 3, 0, 0, 1],
+          "data_type": "int16",
+          "gsd": 60,
+          "href": "https://services.terrascope.be/download/WORLDCOVER/ESA_WORLDCOVER_10M_2021_V200/MAP/ESA_WorldCover_10m_2021_v200_N00E027_Map/ESA_WorldCover_10m_2021_v200_N00E027_InputQuality.tif",
+          "auth:refs": [
+            "oidc"
+          ],
+          "updated": "2022-08-03T14:46:49.916673Z",
+          "file:size": 24363945
+        },
+        "Map": {
+          "raster:offset": 0,
+          "roles": [
+            "data"
+          ],
+          "alternate": {
+            "local": {
+              "href": "file:///data/MTDA/WORLDCOVER/ESA_WORLDCOVER_10M_2021_V200/MAP/ESA_WorldCover_10m_2021_v200_N00E027_Map/ESA_WorldCover_10m_2021_v200_N00E027_Map.tif"
+            }
+          },
+          "nodata": 0,
+          "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+          "title": "Map",
+          "bands": [
+            {
+              "name": "Map",
+              "classification:classes": [
+                {
+                  "name": "tree_cover",
+                  "color_hint": "006400",
+                  "title": "Tree cover",
+                  "value": 10
+                },
+                {
+                  "name": "shrubland",
+                  "color_hint": "FFBB22",
+                  "title": "Shrubland",
+                  "value": 20
+                },
+                {
+                  "name": "grassland",
+                  "color_hint": "FFFF4C",
+                  "title": "Grassland",
+                  "value": 30
+                },
+                {
+                  "name": "cropland",
+                  "color_hint": "F096FF",
+                  "title": "Cropland",
+                  "value": 40
+                },
+                {
+                  "name": "built-up",
+                  "color_hint": "FA0000",
+                  "title": "Built-up",
+                  "value": 50
+                },
+                {
+                  "name": "bare-sparse-vegetation",
+                  "color_hint": "B4B4B4",
+                  "title": "Bare/sparse vegetation",
+                  "value": 60
+                },
+                {
+                  "name": "snow-and-ice",
+                  "color_hint": "F0F0F0",
+                  "title": "Snow and ice",
+                  "value": 70
+                },
+                {
+                  "name": "permanent-water-bodies",
+                  "color_hint": "0064C8",
+                  "title": "Permanent water bodies",
+                  "value": 80
+                },
+                {
+                  "name": "herbaceous-wetlands",
+                  "color_hint": "0096A0",
+                  "title": "Herbaceous wetlands",
+                  "value": 90
+                },
+                {
+                  "name": "mangroves",
+                  "color_hint": "00CF75",
+                  "title": "Mangroves",
+                  "value": 95
+                },
+                {
+                  "name": "moss-and-lichen",
+                  "color_hint": "FAE6A0",
+                  "title": "Moss and lichen",
+                  "value": 100
+                }
+              ]
+            }
+          ],
+          "raster:sampling": "area",
+          "raster:scale": 1,
+          "proj:shape": [36000, 36000],
+          "proj:transform": [0.000083333333333333, 0, 27, 0, -0.000083333333333333, 3, 0, 0, 1],
+          "data_type": "uint8",
+          "href": "https://services.terrascope.be/download/WORLDCOVER/ESA_WORLDCOVER_10M_2021_V200/MAP/ESA_WorldCover_10m_2021_v200_N00E027_Map/ESA_WorldCover_10m_2021_v200_N00E027_Map.tif",
+          "auth:refs": [
+            "oidc"
+          ],
+          "updated": "2022-10-21T05:47:36.380956Z",
+          "file:size": 27472795
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "stac_version": "1.1.0",
+      "stac_extensions": [
+        "https://stac-extensions.github.io/processing/v1.2.0/schema.json",
+        "https://stac-extensions.github.io/product/v0.1.0/schema.json",
+        "https://stac-extensions.github.io/grid/v1.1.0/schema.json",
+        "https://stac-extensions.github.io/classification/v2.0.0/schema.json",
+        "https://stac-extensions.github.io/file/v2.1.0/schema.json",
+        "https://stac-extensions.github.io/raster/v2.0.0/schema.json",
+        "https://stac-extensions.github.io/projection/v2.0.0/schema.json",
+        "https://stac-extensions.github.io/alternate-assets/v1.2.0/schema.json",
+        "https://stac-extensions.github.io/authentication/v1.1.0/schema.json",
+        "https://stac-extensions.github.io/web-map-links/v1.3.0/schema.json"
+      ],
+      "id": "ESA_WorldCover_10m_2021_v200_N00E030_Map",
+      "collection": "esa-worldcover-map-10m-2021-v2",
+      "geometry": {
+        "coordinates": [
+          [
+            [30, 0],
+            [33, 0],
+            [33, 3],
+            [30, 3],
+            [30, 0]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "bbox": [30, 0, 33, 3],
+      "properties": {
+        "grid:code": "WORLDCOVER-N00E030",
+        "proj:code": "EPSG:4326",
+        "start_datetime": "2021-01-01T00:00:00Z",
+        "end_datetime": "2021-12-31T23:59:59Z",
+        "proj:geometry": {
+          "coordinates": [
+            [
+              [30, 0],
+              [33, 0],
+              [33, 3],
+              [30, 3],
+              [30, 0]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "created": "2025-07-02T15:45:03.510788Z",
+        "processing:facility": "VITO",
+        "processing:version": "200",
+        "product:type": "Map",
+        "title": "ESA_WorldCover_10m_2021_v200_N00E030_Map",
+        "proj:bbox": [30, 0, 33, 3],
+        "auth:schemes": {
+          "oidc": {
+            "openIdConnectUrl": "https://sso.terrascope.be/auth/realms/terrascope/.well-known/openid-configuration",
+            "description": "Authenticate with Terrascope OpenID Connect",
+            "type": "openIdConnect"
+          }
+        },
+        "datetime": "2021-01-01T00:00:00Z",
+        "instruments": [
+          "sar",
+          "msi"
+        ],
+        "constellation": "sentinel-1, sentinel-2",
+        "gsd": 10,
+        "processing:datetime": "2022-10-21T05:50:47Z",
+        "updated": "2025-07-02T15:45:31.779621Z",
+        "providers": [
+          {
+            "roles": [
+              "producer"
+            ],
+            "name": "ESA",
+            "url": "https://earth.esa.int/"
+          },
+          {
+            "roles": [
+              "processor",
+              "host"
+            ],
+            "name": "VITO",
+            "url": "https://terrascope.be/"
+          }
+        ]
+      },
+      "links": [
+        {
+          "rel": "self",
+          "type": "application/geo+json",
+          "href": "https://stac.terrascope.be/collections/esa-worldcover-map-10m-2021-v2/items/ESA_WorldCover_10m_2021_v200_N00E030_Map"
+        },
+        {
+          "rel": "parent",
+          "type": "application/json",
+          "href": "https://stac.terrascope.be/collections/esa-worldcover-map-10m-2021-v2"
+        },
+        {
+          "rel": "collection",
+          "type": "application/json",
+          "href": "https://stac.terrascope.be/collections/esa-worldcover-map-10m-2021-v2"
+        },
+        {
+          "rel": "root",
+          "type": "application/json",
+          "href": "https://stac.terrascope.be/"
+        },
+        {
+          "rel": "tilejson",
+          "href": "https://titiler.terrascope.be/collections/esa-worldcover-map-10m-2021-v2/items/ESA_WorldCover_10m_2021_v200_N00E030_Map/WebMercatorQuad/tilejson.json?assets=Map&colormap_name=worldcover",
+          "type": "application/json",
+          "title": "TileJSON"
+        }
+      ],
+      "assets": {
+        "preview": {
+          "proj:code": null,
+          "proj:shape": [256, 256],
+          "roles": [
+            "thumbnail",
+            "overview"
+          ],
+          "description": "Preview image",
+          "href": "https://titiler.terrascope.be/collections/esa-worldcover-map-10m-2021-v2/items/ESA_WorldCover_10m_2021_v200_N00E030_Map/preview?assets=Map&format=png&max_size=256&colormap_name=worldcover",
+          "type": "image/png",
+          "title": "Preview"
+        },
+        "InputQuality": {
+          "raster:offset": 0,
+          "roles": [
+            "data"
+          ],
+          "description": "Per pixel quality indicator showing the quality of the input data.",
+          "alternate": {
+            "local": {
+              "href": "file:///data/MTDA/WORLDCOVER/ESA_WORLDCOVER_10M_2021_V200/MAP/ESA_WorldCover_10m_2021_v200_N00E030_Map/ESA_WorldCover_10m_2021_v200_N00E030_InputQuality.tif"
+            }
+          },
+          "nodata": -1,
+          "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+          "title": "InputQuality",
+          "bands": [
+            {
+              "name": "NOBS_S1_GAMMA0",
+              "description": "Number of Sentinel-1 GAMMA0 observations used in the classification workflow"
+            },
+            {
+              "name": "NOBS_S2_L2A",
+              "description": "Number of Sentinel-2 L2A observations used in the classification workflow"
+            },
+            {
+              "name": "INVALID_S2",
+              "description": "Percentage (0-100) of invalid S2 observations discarded in the classification workflow (after cloud and cloud shadow filtering)"
+            }
+          ],
+          "raster:sampling": "area",
+          "raster:scale": 1,
+          "proj:shape": [6000, 6000],
+          "proj:transform": [0.0005, 0, 30, 0, -0.0005, 3, 0, 0, 1],
+          "data_type": "int16",
+          "gsd": 60,
+          "href": "https://services.terrascope.be/download/WORLDCOVER/ESA_WORLDCOVER_10M_2021_V200/MAP/ESA_WorldCover_10m_2021_v200_N00E030_Map/ESA_WorldCover_10m_2021_v200_N00E030_InputQuality.tif",
+          "auth:refs": [
+            "oidc"
+          ],
+          "updated": "2022-08-03T14:46:54.218294Z",
+          "file:size": 24363326
+        },
+        "Map": {
+          "raster:offset": 0,
+          "roles": [
+            "data"
+          ],
+          "alternate": {
+            "local": {
+              "href": "file:///data/MTDA/WORLDCOVER/ESA_WORLDCOVER_10M_2021_V200/MAP/ESA_WorldCover_10m_2021_v200_N00E030_Map/ESA_WorldCover_10m_2021_v200_N00E030_Map.tif"
+            }
+          },
+          "nodata": 0,
+          "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+          "title": "Map",
+          "bands": [
+            {
+              "name": "Map",
+              "classification:classes": [
+                {
+                  "name": "tree_cover",
+                  "color_hint": "006400",
+                  "title": "Tree cover",
+                  "value": 10
+                },
+                {
+                  "name": "shrubland",
+                  "color_hint": "FFBB22",
+                  "title": "Shrubland",
+                  "value": 20
+                },
+                {
+                  "name": "grassland",
+                  "color_hint": "FFFF4C",
+                  "title": "Grassland",
+                  "value": 30
+                },
+                {
+                  "name": "cropland",
+                  "color_hint": "F096FF",
+                  "title": "Cropland",
+                  "value": 40
+                },
+                {
+                  "name": "built-up",
+                  "color_hint": "FA0000",
+                  "title": "Built-up",
+                  "value": 50
+                },
+                {
+                  "name": "bare-sparse-vegetation",
+                  "color_hint": "B4B4B4",
+                  "title": "Bare/sparse vegetation",
+                  "value": 60
+                },
+                {
+                  "name": "snow-and-ice",
+                  "color_hint": "F0F0F0",
+                  "title": "Snow and ice",
+                  "value": 70
+                },
+                {
+                  "name": "permanent-water-bodies",
+                  "color_hint": "0064C8",
+                  "title": "Permanent water bodies",
+                  "value": 80
+                },
+                {
+                  "name": "herbaceous-wetlands",
+                  "color_hint": "0096A0",
+                  "title": "Herbaceous wetlands",
+                  "value": 90
+                },
+                {
+                  "name": "mangroves",
+                  "color_hint": "00CF75",
+                  "title": "Mangroves",
+                  "value": 95
+                },
+                {
+                  "name": "moss-and-lichen",
+                  "color_hint": "FAE6A0",
+                  "title": "Moss and lichen",
+                  "value": 100
+                }
+              ]
+            }
+          ],
+          "raster:sampling": "area",
+          "raster:scale": 1,
+          "proj:shape": [36000, 36000],
+          "proj:transform": [0.000083333333333333, 0, 30, 0, -0.000083333333333333, 3, 0, 0, 1],
+          "data_type": "uint8",
+          "href": "https://services.terrascope.be/download/WORLDCOVER/ESA_WORLDCOVER_10M_2021_V200/MAP/ESA_WorldCover_10m_2021_v200_N00E030_Map/ESA_WorldCover_10m_2021_v200_N00E030_Map.tif",
+          "auth:refs": [
+            "oidc"
+          ],
+          "updated": "2022-10-21T05:50:47.317697Z",
+          "file:size": 162332837
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "stac_version": "1.1.0",
+      "stac_extensions": [
+        "https://stac-extensions.github.io/processing/v1.2.0/schema.json",
+        "https://stac-extensions.github.io/product/v0.1.0/schema.json",
+        "https://stac-extensions.github.io/grid/v1.1.0/schema.json",
+        "https://stac-extensions.github.io/classification/v2.0.0/schema.json",
+        "https://stac-extensions.github.io/file/v2.1.0/schema.json",
+        "https://stac-extensions.github.io/raster/v2.0.0/schema.json",
+        "https://stac-extensions.github.io/projection/v2.0.0/schema.json",
+        "https://stac-extensions.github.io/alternate-assets/v1.2.0/schema.json",
+        "https://stac-extensions.github.io/authentication/v1.1.0/schema.json",
+        "https://stac-extensions.github.io/web-map-links/v1.3.0/schema.json"
+      ],
+      "id": "ESA_WorldCover_10m_2021_v200_N00E033_Map",
+      "collection": "esa-worldcover-map-10m-2021-v2",
+      "geometry": {
+        "coordinates": [
+          [
+            [33, 0],
+            [36, 0],
+            [36, 3],
+            [33, 3],
+            [33, 0]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "bbox": [33, 0, 36, 3],
+      "properties": {
+        "grid:code": "WORLDCOVER-N00E033",
+        "proj:code": "EPSG:4326",
+        "start_datetime": "2021-01-01T00:00:00Z",
+        "end_datetime": "2021-12-31T23:59:59Z",
+        "proj:geometry": {
+          "coordinates": [
+            [
+              [33, 0],
+              [36, 0],
+              [36, 3],
+              [33, 3],
+              [33, 0]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "created": "2025-07-02T15:43:16.230967Z",
+        "processing:facility": "VITO",
+        "processing:version": "200",
+        "product:type": "Map",
+        "title": "ESA_WorldCover_10m_2021_v200_N00E033_Map",
+        "proj:bbox": [33, 0, 36, 3],
+        "auth:schemes": {
+          "oidc": {
+            "openIdConnectUrl": "https://sso.terrascope.be/auth/realms/terrascope/.well-known/openid-configuration",
+            "description": "Authenticate with Terrascope OpenID Connect",
+            "type": "openIdConnect"
+          }
+        },
+        "datetime": "2021-01-01T00:00:00Z",
+        "instruments": [
+          "sar",
+          "msi"
+        ],
+        "constellation": "sentinel-1, sentinel-2",
+        "gsd": 10,
+        "processing:datetime": "2022-10-21T05:51:30Z",
+        "updated": "2025-07-02T15:45:31.499552Z",
+        "providers": [
+          {
+            "roles": [
+              "producer"
+            ],
+            "name": "ESA",
+            "url": "https://earth.esa.int/"
+          },
+          {
+            "roles": [
+              "processor",
+              "host"
+            ],
+            "name": "VITO",
+            "url": "https://terrascope.be/"
+          }
+        ]
+      },
+      "links": [
+        {
+          "rel": "self",
+          "type": "application/geo+json",
+          "href": "https://stac.terrascope.be/collections/esa-worldcover-map-10m-2021-v2/items/ESA_WorldCover_10m_2021_v200_N00E033_Map"
+        },
+        {
+          "rel": "parent",
+          "type": "application/json",
+          "href": "https://stac.terrascope.be/collections/esa-worldcover-map-10m-2021-v2"
+        },
+        {
+          "rel": "collection",
+          "type": "application/json",
+          "href": "https://stac.terrascope.be/collections/esa-worldcover-map-10m-2021-v2"
+        },
+        {
+          "rel": "root",
+          "type": "application/json",
+          "href": "https://stac.terrascope.be/"
+        },
+        {
+          "rel": "tilejson",
+          "href": "https://titiler.terrascope.be/collections/esa-worldcover-map-10m-2021-v2/items/ESA_WorldCover_10m_2021_v200_N00E033_Map/WebMercatorQuad/tilejson.json?assets=Map&colormap_name=worldcover",
+          "type": "application/json",
+          "title": "TileJSON"
+        }
+      ],
+      "assets": {
+        "preview": {
+          "proj:code": null,
+          "proj:shape": [256, 256],
+          "roles": [
+            "thumbnail",
+            "overview"
+          ],
+          "description": "Preview image",
+          "href": "https://titiler.terrascope.be/collections/esa-worldcover-map-10m-2021-v2/items/ESA_WorldCover_10m_2021_v200_N00E033_Map/preview?assets=Map&format=png&max_size=256&colormap_name=worldcover",
+          "type": "image/png",
+          "title": "Preview"
+        },
+        "InputQuality": {
+          "raster:offset": 0,
+          "roles": [
+            "data"
+          ],
+          "description": "Per pixel quality indicator showing the quality of the input data.",
+          "alternate": {
+            "local": {
+              "href": "file:///data/MTDA/WORLDCOVER/ESA_WORLDCOVER_10M_2021_V200/MAP/ESA_WorldCover_10m_2021_v200_N00E033_Map/ESA_WorldCover_10m_2021_v200_N00E033_InputQuality.tif"
+            }
+          },
+          "nodata": -1,
+          "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+          "title": "InputQuality",
+          "bands": [
+            {
+              "name": "NOBS_S1_GAMMA0",
+              "description": "Number of Sentinel-1 GAMMA0 observations used in the classification workflow"
+            },
+            {
+              "name": "NOBS_S2_L2A",
+              "description": "Number of Sentinel-2 L2A observations used in the classification workflow"
+            },
+            {
+              "name": "INVALID_S2",
+              "description": "Percentage (0-100) of invalid S2 observations discarded in the classification workflow (after cloud and cloud shadow filtering)"
+            }
+          ],
+          "raster:sampling": "area",
+          "raster:scale": 1,
+          "proj:shape": [6000, 6000],
+          "proj:transform": [0.0005, 0, 33, 0, -0.0005, 3, 0, 0, 1],
+          "data_type": "int16",
+          "gsd": 60,
+          "href": "https://services.terrascope.be/download/WORLDCOVER/ESA_WORLDCOVER_10M_2021_V200/MAP/ESA_WorldCover_10m_2021_v200_N00E033_Map/ESA_WorldCover_10m_2021_v200_N00E033_InputQuality.tif",
+          "auth:refs": [
+            "oidc"
+          ],
+          "updated": "2022-08-03T14:46:51.377380Z",
+          "file:size": 24983850
+        },
+        "Map": {
+          "raster:offset": 0,
+          "roles": [
+            "data"
+          ],
+          "alternate": {
+            "local": {
+              "href": "file:///data/MTDA/WORLDCOVER/ESA_WORLDCOVER_10M_2021_V200/MAP/ESA_WorldCover_10m_2021_v200_N00E033_Map/ESA_WorldCover_10m_2021_v200_N00E033_Map.tif"
+            }
+          },
+          "nodata": 0,
+          "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+          "title": "Map",
+          "bands": [
+            {
+              "name": "Map",
+              "classification:classes": [
+                {
+                  "name": "tree_cover",
+                  "color_hint": "006400",
+                  "title": "Tree cover",
+                  "value": 10
+                },
+                {
+                  "name": "shrubland",
+                  "color_hint": "FFBB22",
+                  "title": "Shrubland",
+                  "value": 20
+                },
+                {
+                  "name": "grassland",
+                  "color_hint": "FFFF4C",
+                  "title": "Grassland",
+                  "value": 30
+                },
+                {
+                  "name": "cropland",
+                  "color_hint": "F096FF",
+                  "title": "Cropland",
+                  "value": 40
+                },
+                {
+                  "name": "built-up",
+                  "color_hint": "FA0000",
+                  "title": "Built-up",
+                  "value": 50
+                },
+                {
+                  "name": "bare-sparse-vegetation",
+                  "color_hint": "B4B4B4",
+                  "title": "Bare/sparse vegetation",
+                  "value": 60
+                },
+                {
+                  "name": "snow-and-ice",
+                  "color_hint": "F0F0F0",
+                  "title": "Snow and ice",
+                  "value": 70
+                },
+                {
+                  "name": "permanent-water-bodies",
+                  "color_hint": "0064C8",
+                  "title": "Permanent water bodies",
+                  "value": 80
+                },
+                {
+                  "name": "herbaceous-wetlands",
+                  "color_hint": "0096A0",
+                  "title": "Herbaceous wetlands",
+                  "value": 90
+                },
+                {
+                  "name": "mangroves",
+                  "color_hint": "00CF75",
+                  "title": "Mangroves",
+                  "value": 95
+                },
+                {
+                  "name": "moss-and-lichen",
+                  "color_hint": "FAE6A0",
+                  "title": "Moss and lichen",
+                  "value": 100
+                }
+              ]
+            }
+          ],
+          "raster:sampling": "area",
+          "raster:scale": 1,
+          "proj:shape": [36000, 36000],
+          "proj:transform": [0.000083333333333333, 0, 33, 0, -0.000083333333333333, 3, 0, 0, 1],
+          "data_type": "uint8",
+          "href": "https://services.terrascope.be/download/WORLDCOVER/ESA_WORLDCOVER_10M_2021_V200/MAP/ESA_WorldCover_10m_2021_v200_N00E033_Map/ESA_WorldCover_10m_2021_v200_N00E033_Map.tif",
+          "auth:refs": [
+            "oidc"
+          ],
+          "updated": "2022-10-21T05:51:30.306407Z",
+          "file:size": 162692677
+        }
+      }
+    }
+  ],
+  "links": [
+    {
+      "rel": "next",
+      "type": "application/json",
+      "method": "GET",
+      "href": "https://stac.terrascope.be/collections/esa-worldcover-map-10m-2021-v2/items?collections=esa-worldcover-map-10m-2021-v2&sortby=properties.datetime%2Cid&geometry=POLYGON%28%28120.53557181813544+16.466016401682083%2C120.63994684244832+16.495209161900377%2C120.70744966886812+16.381186807710478%2C120.51450334999474+16.317363063633493%2C120.50315879022669+16.445661893481883%2C120.52825510038736+16.453418271451042%2C120.53557181813544+16.466016401682083%29%29&token=WzE2MDk0NTkyMDAwMDAsIkVTQV9Xb3JsZENvdmVyXzEwbV8yMDIxX3YyMDBfTjAwRTAzM19NYXAiXQ%3D%3D"
+    },
+    {
+      "rel": "root",
+      "type": "application/json",
+      "href": "https://stac.terrascope.be/"
+    },
+    {
+      "rel": "self",
+      "type": "application/json",
+      "href": "https://stac.terrascope.be/collections/esa-worldcover-map-10m-2021-v2/items?&collections=esa-worldcover-map-10m-2021-v2&sortby=properties.datetime,id&geometry=POLYGON((120.53557181813544%2016.466016401682083,120.63994684244832%2016.495209161900377,120.70744966886812%2016.381186807710478,120.51450334999474%2016.317363063633493,120.50315879022669%2016.445661893481883,120.52825510038736%2016.453418271451042,120.53557181813544%2016.466016401682083))"
+    },
+    {
+      "rel": "collection",
+      "type": "application/json",
+      "href": "https://stac.terrascope.be/collections/esa-worldcover-map-10m-2021-v2"
+    },
+    {
+      "rel": "parent",
+      "type": "application/json",
+      "href": "https://stac.terrascope.be/collections/esa-worldcover-map-10m-2021-v2"
+    }
+  ],
+  "numberReturned": 10,
+  "numberMatched": 2651
+}

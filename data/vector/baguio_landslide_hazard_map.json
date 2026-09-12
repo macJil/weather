@@ -1,0 +1,396 @@
+{
+  "type": "FeatureCollection",
+  "features": [],
+  "metadata": {
+    "dataset_name": "Baguio hazard data source manifest",
+    "version": "1.0",
+    "status": "metadata_with_operational_query_not_embedded_geometry",
+    "coverage": "Baguio City, Benguet",
+    "coordinate_system": "WGS84 / EPSG:4326",
+    "important_data_rule": "No hazard class is assigned without an authoritative spatial feature or a documented raster classification.",
+    "usage": "Use this file to document sources. Do not use it alone to classify a clicked location.",
+    "generated_outputs": {
+      "baguio_slope.tif": {
+        "role": "DEM-derived slope raster",
+        "source": "N16E120.hgt",
+        "method": "gdaldem slope -compute_edges",
+        "units": "degrees",
+        "crs": "EPSG:4326",
+        "nodata": -9999
+      },
+      "baguio_derived_risk_features.geojson": {
+        "role": "representative-point screening feature layer",
+        "feature_count": 129,
+        "sources": [
+          "baguio_barangays.geojson",
+          "baguio_slope.tif",
+          "N16E120.hgt",
+          "soilgrids_*.tif",
+          "DENR-MGB FeatureServer layer 0"
+        ],
+        "included_fields": [
+          "representative_latitude",
+          "representative_longitude",
+          "elevation_m",
+          "slope_degrees",
+          "soil_clay_raw",
+          "soil_sand_raw",
+          "soil_silt_raw",
+          "soil_organic_carbon_raw",
+          "soil_nitrogen_raw",
+          "rain_induced_landslide_code",
+          "rain_induced_landslide_class"
+        ],
+        "quality": "Screening dataset. Raster values are representative-point samples, not zonal statistics; soil coverage is partial; land cover and time-series weather are not included."
+      }
+    },
+    "city_profile": {
+      "name": "Baguio City",
+      "province": "Benguet",
+      "region": "Cordillera Administrative Region",
+      "administrative_level": "highly urbanized city",
+      "barangay_count": 129,
+      "barangay_source": "PSA / GeoRiskPH Barangay Boundary service",
+      "barangay_layer": "baguio_barangays.geojson",
+      "citywide_reference_extent": {
+        "west": 120.50,
+        "south": 16.30,
+        "east": 120.72,
+        "north": 16.50,
+        "note": "Reference extent for querying; use official polygon boundaries for exact city coverage."
+      },
+      "available_citywide_information": [
+        "129 official barangay polygons and names",
+        "PSGC barangay identifiers",
+        "urban/rural barangay classification",
+        "30 m SRTM elevation source covering Baguio",
+        "local SoilGrids clay, sand, silt, organic-carbon, and nitrogen rasters over part of Baguio",
+        "PHIVOLCS earthquake-induced landslide, ground-shaking, and liquefaction KMZ map overlays",
+        "DENR-MGB rain-induced landslide susceptibility FeatureServer source",
+        "OpenStreetMap extract metadata and satellite-scene footprint metadata"
+      ],
+      "not_yet_complete_citywide": [
+        "Per-barangay slope statistics derived from the DEM",
+        "Per-barangay soil zonal statistics",
+        "Per-barangay MGB hazard-area percentages and dominant classes",
+        "Dated land-cover or vegetation percentages",
+        "Timestamped rainfall accumulation per barangay",
+        "Measured soil-moisture or saturation time series",
+        "Complete building, road-cut, retaining-wall, drainage, and address inventory",
+        "A validated landslide-risk model"
+      ],
+      "coverage_rule": "A citywide summary is valid only where the source layer covers the relevant polygon and the processing method, date, CRS, units, and nodata handling are recorded."
+    },
+    "citywide_processing_plan": {
+      "base_units": "129 official Baguio barangay polygons",
+      "steps": [
+        "1. Reproject every source to EPSG:4326 or a documented equal-area CRS for area calculations.",
+        "2. Intersect each barangay with MGB rain-induced landslide polygons and calculate area by LndslideSusc class.",
+        "3. Calculate DEM-derived minimum, mean, maximum, and percentile slope per barangay.",
+        "4. Sample SoilGrids rasters and calculate clay, sand, silt, organic-carbon, and nitrogen summaries per barangay.",
+        "5. Add a dated land-cover raster and calculate forest, built-up, agriculture, bare-soil, and water percentages.",
+        "6. Join rainfall observations or model data with timestamps; do not store weather as permanent geography.",
+        "7. Keep earthquake-induced landslide, ground-shaking, and liquefaction as separate hazard contexts.",
+        "8. Store source URL, source date, processing date, CRS, resolution, and confidence for every derived field."
+      ],
+      "output_schema": {
+        "barangay_name": "string",
+        "psgc_10d": "string",
+        "hazard_area_percent_by_class": "object",
+        "dominant_rain_induced_landslide_class": "string or null",
+        "slope_min_degrees": "number or null",
+        "slope_mean_degrees": "number or null",
+        "slope_max_degrees": "number or null",
+        "soil_statistics": "object or null",
+        "land_cover_percentages": "object or null",
+        "rainfall_observations": "array or null",
+        "source_provenance": "array"
+      }
+    },
+    "local_location_layer": {
+      "file": "baguio_barangays.geojson",
+      "source": "PSA / GeoRiskPH Barangay Boundary",
+      "feature_count": 129,
+      "geometry": "Polygon or MultiPolygon",
+      "coordinate_system": "WGS84 / EPSG:4326",
+      "attributes": [
+        "brgy_name",
+        "psgc_10d",
+        "city_name",
+        "prov_name",
+        "urban_rural2015"
+      ],
+      "use": "Authoritative Baguio barangay boundaries and names. This layer is not itself a hazard classification."
+    },
+    "attached_data_inventory": {
+      "folder": "planet_120.474,16.298_120.708,16.443-garmin-osm-latin1",
+      "map_extent": {
+        "west": 120.474,
+        "south": 16.298,
+        "east": 120.708,
+        "north": 16.443,
+        "source": "BBBike Garmin extract README"
+      },
+      "analytical_assets": {
+        "N16E120.hgt": {
+          "role": "elevation_and_terrain",
+          "format": "SRTM HGT",
+          "crs": "EPSG:4326",
+          "dimensions": "3601 x 3601",
+          "spacing": "1 arc-second, approximately 30 m",
+          "units": "metres",
+          "coverage": "119.999861 to 121.000139 E; 15.999861 to 17.000139 N",
+          "nodata": -32768,
+          "usable_for": ["elevation", "slope", "aspect", "terrain statistics"],
+          "method": "Derive slope and aspect with GDAL or another DEM-aware GIS tool; do not use the raw elevation as a slope value."
+        },
+        "soilgrids_clay.tif": {
+          "role": "soil_property",
+          "property": "clay content",
+          "format": "GeoTIFF",
+          "crs": "EPSG:4326",
+          "dimensions": "91 x 42",
+          "pixel_size_degrees": 0.001864987131922,
+          "approximate_cell_size": "about 200 m",
+          "coverage": "120.505361 to 120.675075 E; 16.358594 to 16.436924 N",
+          "nodata": -32768,
+          "caution": "Confirm SoilGrids band depth and value scaling from the original export metadata before interpreting values."
+        },
+        "soilgrids_sand.tif": {
+          "role": "soil_property",
+          "property": "sand content",
+          "format": "GeoTIFF",
+          "crs": "EPSG:4326",
+          "dimensions": "91 x 42",
+          "approximate_cell_size": "about 200 m",
+          "nodata": -32768
+        },
+        "soilgrids_silt.tif": {
+          "role": "soil_property",
+          "property": "silt content",
+          "format": "GeoTIFF",
+          "crs": "EPSG:4326",
+          "dimensions": "91 x 42",
+          "approximate_cell_size": "about 200 m",
+          "nodata": -32768
+        },
+        "soilgrids_soc.tif": {
+          "role": "soil_property",
+          "property": "soil organic carbon",
+          "format": "GeoTIFF",
+          "crs": "EPSG:4326",
+          "dimensions": "91 x 42",
+          "approximate_cell_size": "about 200 m",
+          "nodata": -32768
+        },
+        "soilgrids_nitrogen.tif": {
+          "role": "soil_property",
+          "property": "soil nitrogen",
+          "format": "GeoTIFF",
+          "crs": "EPSG:4326",
+          "dimensions": "91 x 42",
+          "approximate_cell_size": "about 200 m",
+          "nodata": -32768
+        },
+        "PH_Adm4_BgySubMuns.shp.*": {
+          "role": "national_administrative_boundaries",
+          "format": "ESRI Shapefile family",
+          "geometry": "Polygon",
+          "crs": "EPSG:32651",
+          "feature_count": 42017,
+          "fields": ["adm1_psgc", "adm2_psgc", "adm3_psgc", "adm4_psgc", "adm4_en", "geo_level", "area_km2"],
+          "use": "Filter to Baguio and reproject to EPSG:4326 if used; the local baguio_barangays.geojson is already the smaller Baguio-only layer."
+        },
+        "BgySubMuns.shp.*": {
+          "role": "national_barangay_and_municipality_boundaries",
+          "format": "ESRI Shapefile family",
+          "geometry": "Polygon",
+          "feature_count": 45597,
+          "use": "Use only after inspecting its CRS and attributes; prefer the official Baguio-only GeoJSON for this application."
+        }
+      },
+      "hazard_assets": {
+        "eil_2022_141102000_01.kmz": {
+          "hazard_type": "earthquake_induced_landslide",
+          "publisher": "DOST-PHIVOLCS",
+          "map_id": "l_baguiocity_eil_2021_141102_02",
+          "format": "KMZ containing KML ground overlays and PNG images",
+          "use": "Visual hazard-map overlay",
+          "limitation": "Ground-overlay rectangles are image coverage bounds, not vector hazard boundaries."
+        },
+        "gsh_2012_141102000_01.kmz": {
+          "hazard_type": "ground_shaking",
+          "publisher": "PHIVOLCS / READY Project",
+          "map_id": "Benguet_Baguio City_GS_2012",
+          "format": "KMZ containing KML ground overlays and PNG images",
+          "use": "Visual hazard-map overlay",
+          "limitation": "The image legend must be interpreted; the overlay bounds alone do not classify a clicked point."
+        },
+        "liq_2012_141102000_01.kmz": {
+          "hazard_type": "liquefaction",
+          "publisher": "PHIVOLCS / READY Project",
+          "map_id": "Benguet_Baguio_Liquefaction_2012",
+          "format": "KMZ containing KML ground overlays and PNG images",
+          "use": "Visual hazard-map overlay",
+          "limitation": "The image legend must be interpreted; the overlay bounds alone do not classify a clicked point."
+        }
+      },
+      "reference_and_non_classification_assets": {
+        "asf-results-*.geojson": "ALOS/PALSAR satellite scene footprints and download metadata; not vegetation or hazard classifications.",
+        "CAR.json": "GeoJSON regional metadata/features; inspect before using as an analytical layer.",
+        "CAR1.json": "GeoJSON regional metadata/features; inspect before using as an analytical layer.",
+        "gmapsupp.img": "Garmin compiled map image; not suitable for coordinate-based raster analysis.",
+        "basecamp-macos.sh": "Garmin/BaseCamp support script; not an analytical dataset.",
+        "README.txt": "BBBike Garmin extract metadata; reports a 2026-09-09 OSM extract.",
+        "logfile.txt": "BBBike extraction log and source PBF metadata; useful for provenance only.",
+        "CHECKSUM.txt": "File integrity checksums; useful for provenance only."
+      }
+    },
+    "factor_data_contract": {
+      "soil_moisture_or_saturation": {
+        "available_locally": false,
+        "current_source": "Open-Meteo model estimate in weather-save.php",
+        "better_source": "timestamped field sensors or documented satellite/model time series",
+        "rule": "Never store soil moisture as a permanent barangay property."
+      },
+      "slope_angle": {
+        "available_locally": true,
+        "source": "N16E120.hgt",
+        "rule": "Calculate slope from a DEM window around the clicked point or by zonal statistics per barangay."
+      },
+      "geological_soil_properties": {
+        "available_locally": true,
+        "source": "soilgrids_*.tif",
+        "rule": "Sample the rasters at the clicked point or calculate zonal statistics; retain raster name, date, depth, units, and nodata handling."
+      },
+      "known_hazard_zone": {
+        "available_locally": true,
+        "sources": ["eil_2022_141102000_01.kmz", "gsh_2012_141102000_01.kmz", "liq_2012_141102000_01.kmz"],
+        "preferred_classification_source": "Official DENR-MGB FeatureServer for rain-induced landslide susceptibility",
+        "rule": "Do not classify from KMZ rectangle bounds; use vector features or documented raster color classification."
+      },
+      "land_cover_or_vegetation": {
+        "available_locally": false,
+        "nearby_local_asset": "asf-results-*.geojson only contains satellite scene footprints",
+        "recommended_source": "dated ESA WorldCover, DENR/NAMRIA land-cover raster, or processed Sentinel-2/MODIS imagery",
+        "rule": "Do not infer vegetation from OSM land-use tags such as Retail or Residential."
+      }
+    },
+    "hazard_types": [
+      "rain_induced_landslide",
+      "earthquake_induced_landslide",
+      "ground_shaking",
+      "liquefaction",
+      "flood"
+    ],
+    "authoritative_sources": {
+      "rain_induced_landslide": {
+        "agency": "DENR-MGB",
+        "service": "https://controlmap.mgb.gov.ph/arcgis/rest/services/GeospatialDataInventory/GDI_Detailed_Rain_induced_Landslide_Susceptibility/FeatureServer/0",
+        "required_action": "Query or download the official polygons and spatially join the clicked point."
+      },
+      "landslide_inventory": {
+        "agency": "DENR-MGB",
+        "service": "https://controlmap.mgb.gov.ph/arcgis/rest/services/GeospatialDataInventory_Public/GDI_Landslide_Inventory_Public/FeatureServer",
+        "required_action": "Use as historical evidence, not as a current susceptibility classification."
+      },
+      "barangay_boundaries": {
+        "agency": "PSA / GeoRiskPH",
+        "service": "https://ulap-nga.georisk.gov.ph/arcgis/rest/services/PSA/BarangayPopMF/MapServer/0",
+        "required_action": "Use official polygons to identify the selected barangay."
+      },
+      "hazard_assessment": {
+        "agency": "GeoRiskPH / DOST-PHIVOLCS",
+        "website": "https://hazardhunter.georisk.gov.ph/",
+        "required_action": "Use the official assessment service or authorized data access for report-level results."
+      }
+    },
+    "operational_layers": {
+      "baguio_rain_induced_landslide": {
+        "agency": "DENR-MGB",
+        "service": "https://controlmap.mgb.gov.ph/arcgis/rest/services/GeospatialDataInventory/GDI_Detailed_Rain_induced_Landslide_Susceptibility/FeatureServer/0",
+        "geometry_type": "esriGeometryPolygon",
+        "spatial_reference": "EPSG:4326",
+        "classification_field": "LndslideSusc",
+        "classification_field_alias": "Landslide Susceptibility Rating",
+        "class_mapping": {
+          "VHL": "Very High Susceptibility",
+          "HL": "High Susceptibility",
+          "ML": "Moderate Susceptibility",
+          "LL": "Low Susceptibility",
+          "DF": "Debris Flow / Possible Accumulation Zone"
+        },
+        "response_format": "ArcGIS REST JSON",
+        "query_template": "https://controlmap.mgb.gov.ph/arcgis/rest/services/GeospatialDataInventory/GDI_Detailed_Rain_induced_Landslide_Susceptibility/FeatureServer/0/query?where=1%3D1&geometry={longitude}%2C{latitude}%2C{longitude}%2C{latitude}&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CLndslideSusc&returnGeometry=true&outSR=4326&f=json",
+        "query_note": "The application must replace {longitude} and {latitude}, parse the ArcGIS JSON features, and inspect attributes.LndslideSusc. Use point geometry or a small envelope for a clicked location.",
+        "verified_baguio_extent": {
+          "west": 120.50,
+          "south": 16.30,
+          "east": 120.72,
+          "north": 16.50
+        },
+        "verified_response_fields": [
+          "OBJECTID",
+          "LndslideSusc"
+        ]
+      }
+    },
+    "classification_legend": {
+      "rain_induced_landslide": [
+        "Very High Susceptibility",
+        "High Susceptibility",
+        "Moderate Susceptibility",
+        "Low Susceptibility",
+        "Debris Flow / Possible Accumulation Zone"
+      ],
+      "earthquake_induced_landslide": [
+        "High",
+        "Moderate",
+        "Low",
+        "Possible Depositional or Affected Zone"
+      ],
+      "ground_shaking": [
+        "PEIS Intensity VIII or higher",
+        "PEIS Intensity VII",
+        "PEIS Intensity VI",
+        "PEIS Intensity lower than VI"
+      ],
+      "liquefaction": [
+        "High Susceptibility",
+        "Moderate Susceptibility",
+        "Low Susceptibility"
+      ]
+    },
+    "required_feature_schema": {
+      "type": "Feature",
+      "geometry": "Polygon or MultiPolygon in EPSG:4326",
+      "properties": {
+        "hazard_type": "string",
+        "hazard_class": "string",
+        "source_agency": "string",
+        "source_url": "string",
+        "source_date": "string",
+        "confidence": "optional string"
+      }
+    },
+    "processing_rule": "The application must perform a point-in-polygon query against official hazard geometry. Image-overlay rectangles and unverified point examples must not be treated as hazard zones.",
+    "missing_work": [
+      "Query the official MGB layer through its FeatureServer endpoint.",
+      "Spatially intersect the MGB hazard polygons with baguio_barangays.geojson.",
+      "Derive per-barangay slope statistics from a DEM.",
+      "Join soil properties from an authoritative soil or geology layer.",
+      "Join land-cover classes from a dated raster or official land-cover layer.",
+      "Confirm the source date and coordinate reference system.",
+      "Store source and classification attributes with each feature.",
+      "Validate classifications against the official map legend.",
+      "Join the clicked latitude and longitude to the resulting geometry."
+    ],
+    "not_included": [
+      "Unverified barangay hazard ratings",
+      "Guessed slope values",
+      "Guessed geological descriptions",
+      "Guessed rainfall thresholds",
+      "Barangay point centroids used as hazard boundaries"
+    ]
+  }
+}
