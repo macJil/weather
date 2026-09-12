@@ -14,8 +14,10 @@ require_once("config/database.php");
           <span>Offline city map · click to inspect</span>
           <div id="map"></div>
         </div>
-        <div class="col-lg-6">
-           <p>Risk Analysis will show here</p>
+        <div class="col-lg-6" style="margin-top: 30px;">
+            <div id="risk-analysis">
+                <?php include("partials/risk_results.php")?>
+            </div>
         </div>
     </div>
   </div>

@@ -2,99 +2,64 @@
 console.log("Map UI script loaded.");
 document.addEventListener('DOMContentLoaded', function() {
     console.log("DOM fully loaded and parsed. Initializing map...");
-    if (typeof L === 'undefined') {
-        console.error("Leaflet (L) is not defined. Check if leaflet.js is loaded correctly.");
-        return;
-    }
-    
-    // 1. Set the map boundary for Baguio City
-    var baguioBounds = [[16.3000, 120.5000], [16.5000, 120.7200]];
-    
+    if (typeof L === 'undefined') return;
+
     var map = L.map('map', {
         center: [16.4023, 120.5960],
         zoom: 13,
         minZoom: 12,
-        maxZoom: 18,
-        maxBounds: baguioBounds,
-        maxBoundsViscosity: 1.0
+        maxZoom: 18
     });
-    console.log("Map initialized.");
-
-    // 2. Load map tiles (Local tiles as fallback)
-    var osmLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '© OpenStreetMap'
-    }).addTo(map);
-    console.log("Tile layer added.");
-
-    // Handle offline/local tile fallback
-    osmLayer.on('tileerror', function() {
-        console.log("OSM tiles failed, switching to local tiles...");
-        map.removeLayer(osmLayer);
-        L.tileLayer('/weather/assets/map-tiles/{z}/{x}/{y}.png', {
-            minZoom: 12,
-            maxZoom: 18,
-            bounds: baguioBounds,
-            errorTileUrl: 'data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=',
-            attribution: 'Local Tiles © OpenStreetMap'
-        }).addTo(map);
-    });
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
 
     var activeMarker = null;
-    var timer = null;
+    var timer = null; // Timer variable for auto-refresh
 
-    // 3. Refactored function to send only coordinates to PHP
+    // Simplified function: just fetch HTML
     function sendCoordinatesToPHP(lat, lng) {
-        console.log("Sending coordinates to PHP:", lat, lng);
         var postData = 'lat=' + encodeURIComponent(lat) + '&lng=' + encodeURIComponent(lng);
 
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 60000); 
-        
-        fetch('/weather/api/save_weather.php', {
+        fetch('/weather/process_weather.php', {
           method: 'POST',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: postData,
-          signal: controller.signal
+          body: postData
         })
-        .then(function(res) {
-          clearTimeout(timeoutId);
-          if (!res.ok) throw new Error('Server error: ' + res.status);
-          return res.text();
-        })
-        .then(function(phpHtmlResponse) {
-          document.getElementById('weather-logs').innerHTML = phpHtmlResponse;
+        .then(function(res) { return res.text(); })
+        .then(function(htmlResponse) {
+            var parts = htmlResponse.split('<!--SPLIT-->');
+            if (parts.length === 2) {
+                document.getElementById('risk-analysis').innerHTML = parts[0];
+                document.getElementById('weather-logs').innerHTML = parts[1];
+            }
         })
         .catch(function(error) {
           console.error('Error:', error);
           document.getElementById('weather-logs').innerHTML = 
-            '<div class="alert alert-danger">Error fetching risk data: ' + error.message + '</div>';
+            '<div class="alert alert-danger">Error fetching weather data.</div>';
         });
     }
 
-    // 4. Map click event handler
     map.on('click', function(event) {
-        console.log("Map clicked at:", event.latlng);
-        var lat = event.latlng.lat;
-        var lng = event.latlng.lng;
-
-        if (timer !== null) clearInterval(timer);
-
         if (activeMarker !== null) {
           activeMarker.setLatLng(event.latlng);
         } else {
           activeMarker = L.marker(event.latlng).addTo(map);
         }
 
-        document.getElementById('weather-logs').innerText = "Analyzing location and fetching live weather...";
-        
+        // Clear existing timer if clicking a new spot
+        if (timer !== null) clearInterval(timer);
+
+        document.getElementById('weather-logs').innerText = "Analyzing...";
+        document.getElementById('risk-analysis').innerText = "Calculating...";
+
         // Immediate fetch
-        sendCoordinatesToPHP(lat, lng);
+        sendCoordinatesToPHP(event.latlng.lat, event.latlng.lng);
 
         // Auto-refresh every 30 seconds
         timer = setInterval(function() {
-          sendCoordinatesToPHP(lat, lng);
+          sendCoordinatesToPHP(event.latlng.lat, event.latlng.lng);
         }, 30000); 
     });
 });
 </script>
+
