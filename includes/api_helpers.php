@@ -1,7 +1,15 @@
 <?php
 
 /**
- * Fetch JSON data from a URL using file_get_contents and stream_context
+ * HELPER FUNCTIONS: api_helpers.php
+ * 
+ * This file contains reusable functions to:
+ * 1. Fetch data from external REST APIs (Weather, Soil, Topography).
+ * 2. Calculate landslide risk metrics (Runoff, Infiltration, Saturation).
+ */
+
+/**
+ * Sends a GET/POST request to an API and returns the JSON response as an associative array.
  */
 function fetchJson($url, $postData = null) {
     $options = [
@@ -22,7 +30,7 @@ function fetchJson($url, $postData = null) {
 }
 
 /**
- * Get Soil Type from ISRIC SoilGrids API
+ * Queries ISRIC SoilGrids API to determine the soil classification at a coordinate.
  */
 function getSoilType($latitude, $longitude) {
     $url = 'https://rest.isric.org/soilgrids/v2.0/classification/query?' . http_build_query([
@@ -35,9 +43,11 @@ function getSoilType($latitude, $longitude) {
 }
 
 /**
- * Get Slope Angle from OpenTopoData API (SRTM 90m)
+ * Uses OpenTopoData (SRTM 90m) to calculate terrain slope at a coordinate.
+ * Samples elevations around the point to approximate the gradient.
  */
 function getSlopeAngle($latitude, $longitude) {
+    // Define sample points to approximate gradient
     $points = [
         [$latitude, $longitude],
         [$latitude + 0.0009, $longitude],
@@ -69,6 +79,7 @@ function getSlopeAngle($latitude, $longitude) {
         return null;
     }
 
+    // Mathematical gradient calculation
     $metersPerDegreeLatitude = 111320;
     $metersPerDegreeLongitude = 111320 * cos(deg2rad($latitude));
     $northSouthDistance = 0.0018 * $metersPerDegreeLatitude;
@@ -82,7 +93,7 @@ function getSlopeAngle($latitude, $longitude) {
 }
 
 /**
- * Get Weather Data from Open-Meteo API
+ * Fetches current and daily weather forecasts for a specific coordinate.
  */
 function getWeatherData($lat, $lng) {
     $url = "https://api.open-meteo.com/v1/forecast?latitude=$lat&longitude=$lng" .
@@ -94,7 +105,7 @@ function getWeatherData($lat, $lng) {
 }
 
 /**
- * Get Location Name from Nominatim (OpenStreetMap) API
+ * Gets a human-readable location name for a set of coordinates.
  */
 function getLocationName($lat, $lng) {
     $url = "https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=$lat&lon=$lng";
@@ -121,10 +132,10 @@ function getLocationName($lat, $lng) {
     return implode(", ", array_filter($locationParts)) ?: "Unknown Location";
 }
 
-// === RUNOFF & HYDRAULICS CALCULATIONS ===
+// === RISK CALCULATION MODELS ===
 
 /**
- * Calculate Runoff Coefficient based on soil type and slope
+ * Determines runoff factor based on soil properties and slope steepness.
  */
 function calculateRunoffCoefficient(string $soilType, float $slope): float {
     $soilRunoffFactors = [
@@ -137,6 +148,7 @@ function calculateRunoffCoefficient(string $soilType, float $slope): float {
     $soilType = strtolower(trim($soilType));
     $baseCoefficient = $soilRunoffFactors[$soilType] ?? 0.35;
 
+    // Steeper slopes = more runoff
     $slopeFactor = 1.0;
     if ($slope > 30) $slopeFactor = 1.4;
     elseif ($slope > 20) $slopeFactor = 1.3;
@@ -147,7 +159,7 @@ function calculateRunoffCoefficient(string $soilType, float $slope): float {
 }
 
 /**
- * Calculate Infiltration Rate (mm/h)
+ * Determines infiltration capacity based on soil type and current saturation.
  */
 function calculateInfiltrationRate(string $soilType, float $soilMoisture): float {
     $soilInfiltration = [
@@ -160,20 +172,24 @@ function calculateInfiltrationRate(string $soilType, float $soilMoisture): float
     $soilType = strtolower(trim($soilType));
     $maxInfiltration = $soilInfiltration[$soilType] ?? 10.0;
 
+    // As soil gets wet, infiltration capacity drops
     $saturationReduction = 1.0 - $soilMoisture;
     return max(0.1, $maxInfiltration * $saturationReduction);
 }
 
 /**
- * Calculate Soil Saturation Index (0-1 scale)
+ * Computes a soil saturation index (0 to 1) based on rainfall, evapotranspiration, and infiltration.
  */
 function calculateSoilSaturation(float $soilMoisture, float $rainRate, float $et0, float $infiltrationRate): float {
+    // Net water balance
     $netWater = $rainRate - $et0;
 
     if ($netWater > 0) {
+        // Soil gets wetter
         $waterAfterInfiltration = max(0, $netWater - $infiltrationRate);
         return min(1.0, $soilMoisture + ($waterAfterInfiltration / 100.0));
     } else {
+        // Soil dries out
         return max(0.0, $soilMoisture + ($netWater / 50.0));
     }
 }
